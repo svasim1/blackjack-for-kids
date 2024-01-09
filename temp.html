@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="game.js" type="module"></script>
+    <title>TEMP</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+      #table {
+        flex: 0.75;
+        background-color: red;
+      }
+      #hand {
+        flex: 0.25;
+        background-color: pink;
+        display: flex;
+        flex-direction: column;
+      }
+      #hand-cards {
+        background-color: green;
+        justify-content: center;
+        flex: 0.75;
+      }
+      #hand-total {
+        justify-content: flex-end;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="table"></div>
+    <div id="hand">
+      <div id="hand-cards"></div>
+      <div id="hand-total"></div>
+    </div>
+  </body>
+</html>
