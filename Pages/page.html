@@ -9,11 +9,17 @@
 
     <h1>Blackjack Leaderboard</h1>
 
-    <h2>Points Leaderboard</h2>
+    <h2>Most Money Achieved 🤑</h2>
     <ul id="pointsLeaderboard"></ul>
 
-    <h2>Speed Leaderboard</h2>
-    <ul id="speedLeaderboard"></ul>
+    <h2>Fastest Person to Earn More Than Elon Musk 💸</h2>
+    <ul id="muskLeaderboard"></ul>
+
+    <h2>Fastest Person to Earn More Than Jeff Bezos 💸</h2>
+    <ul id="bezosLeaderboard"></ul>
+
+    <h2>Fastest Person to Earn More Than Mark Zuckerberg 💸</h2>
+    <ul id="zuckerLeaderboard"></ul>
 
     <script type="module">
         import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js';
@@ -33,47 +39,66 @@
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
 
-        // Function to fetch and display points leaderboard
+        const MuskNetWorth = 245000000000; // 245,000,000,000
+        const BezosNetWorth = 171400000000; // 171,400,000,000
+        const ZuckerNetWorth = 127000000000; // 127,000,000,000
+
+        // a function to make large numbers more readable by adding commas
+        // for example, 4000000 becomes 4,000,000
+        let humanRead = (num,intSep = ',',floatSep = '.') => {
+            return new Intl
+            .NumberFormat('en-US')
+            .format(num)
+            .replaceAll('.',floatSep)
+            .replaceAll(',',intSep);
+        }
+
+        // function to fetch and display 'most money earned' leaderboard
         async function displayPointsLeaderboard() {
             const pointsLeaderboard = document.getElementById('pointsLeaderboard');
 
-            // Clear previous leaderboard data
             pointsLeaderboard.innerHTML = '';
 
-            // Fetch data from Firestore
-            const pointsQuery = query(collection(db, 'pointsLeaderboard'), orderBy('score', 'desc'), limit(10));
-            const querySnapshot = await getDocs(pointsQuery);
+            // fetch data from Firestore
+                const pointsQuery = query(collection(db, 'pointsLeaderboard'), orderBy('score', 'desc'), limit(10));
+                const querySnapshot = await getDocs(pointsQuery);
 
+                // display said data
+                querySnapshot.forEach((doc) => {
+                    const data = doc.data();
+                    const listItem = document.createElement('li');
+                    listItem.textContent = `${data.username}: 💲${data.score}`;
+                    pointsLeaderboard.appendChild(listItem);
+                });
+        }
+
+        // function to fetch and display timed leaderboard data
+        async function displayTimedLeaderboard(leaderboardId, netWorthThreshold, collectionName) {
+            const leaderboard = document.getElementById(leaderboardId);
+
+            leaderboard.innerHTML = '';
+
+            // fetch data from Firestore
+            const leaderboardQuery = query(collection(db, collectionName), orderBy('timeTaken', 'asc'), limit(10));
+            const querySnapshot = await getDocs(leaderboardQuery);
+
+            // display said data
             querySnapshot.forEach((doc) => {
                 const data = doc.data();
-                const listItem = document.createElement('li');
-                listItem.textContent = `${data.username}: ${data.score} points`;
-                pointsLeaderboard.appendChild(listItem);
+                console.log(data.username, data.score, data.score >= netWorthThreshold);
+                if (data.score > netWorthThreshold) {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = `${data.username}: 💲${humanRead(data.score)} in ${data.timeTaken} seconds`;
+                    leaderboard.appendChild(listItem);
+                }
             });
         }
 
-        // Function to fetch and display speed leaderboard data
-        async function displaySpeedLeaderboard() {
-            const speedLeaderboard = document.getElementById('speedLeaderboard');
-
-            // Clear previous leaderboard data
-            speedLeaderboard.innerHTML = '';
-
-            // Fetch speed leaderboard data from Firestore
-            const speedQuery = query(collection(db, 'speedLeaderboard'), orderBy('timeTaken', 'asc'), limit(10));
-            const querySnapshot = await getDocs(speedQuery);
-
-            querySnapshot.forEach((doc) => {
-                const data = doc.data();
-                const listItem = document.createElement('li');
-                listItem.textContent = `${data.username}: ${data.score} points in ${data.timeTaken} seconds`;
-                speedLeaderboard.appendChild(listItem);
-            });
-        }
-
-        // Call the displayPointsLeaderboard and displaySpeedLeaderboard functions to initially populate the leaderboards
+        // leaderboard ID, minimum net worth required, collection name in firebase
         displayPointsLeaderboard();
-        displaySpeedLeaderboard();
+        displayTimedLeaderboard('muskLeaderboard', MuskNetWorth, 'muskLeaderboard');
+        displayTimedLeaderboard('bezosLeaderboard', BezosNetWorth, 'bezosLeaderboard');
+        displayTimedLeaderboard('zuckerLeaderboard', ZuckerNetWorth, 'zuckerLeaderboard');
     </script>
 </body>
 </html>
