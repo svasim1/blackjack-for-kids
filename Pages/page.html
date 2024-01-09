@@ -1,10 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blackjack Leaderboard</title>
+</head>
 <body>
-    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+
+    <h1>Blackjack Leaderboard</h1>
+
+    <h2>Points Leaderboard</h2>
+    <ul id="pointsLeaderboard"></ul>
+
+    <h2>Speed Leaderboard</h2>
+    <ul id="speedLeaderboard"></ul>
+
     <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-      
-        // Your web app's Firebase configuration
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js';
+        import { getFirestore, collection, getDocs, query, orderBy, limit } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js';
+
+        // Firebase configuration
         const firebaseConfig = {
             apiKey: "AIzaSyDaIpXASxAq07Wp4-TloUkOGLP4ff1MnOE",
             authDomain: "blackjack-for-kids.firebaseapp.com",
@@ -13,8 +28,52 @@
             messagingSenderId: "159518911306",
             appId: "1:159518911306:web:6e126443492859b70eefb3"
         };
-      
+
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // Function to fetch and display points leaderboard
+        async function displayPointsLeaderboard() {
+            const pointsLeaderboard = document.getElementById('pointsLeaderboard');
+
+            // Clear previous leaderboard data
+            pointsLeaderboard.innerHTML = '';
+
+            // Fetch data from Firestore
+            const pointsQuery = query(collection(db, 'pointsLeaderboard'), orderBy('score', 'desc'), limit(10));
+            const querySnapshot = await getDocs(pointsQuery);
+
+            querySnapshot.forEach((doc) => {
+                const data = doc.data();
+                const listItem = document.createElement('li');
+                listItem.textContent = `${data.username}: ${data.score} points`;
+                pointsLeaderboard.appendChild(listItem);
+            });
+        }
+
+        // Function to fetch and display speed leaderboard data
+        async function displaySpeedLeaderboard() {
+            const speedLeaderboard = document.getElementById('speedLeaderboard');
+
+            // Clear previous leaderboard data
+            speedLeaderboard.innerHTML = '';
+
+            // Fetch speed leaderboard data from Firestore
+            const speedQuery = query(collection(db, 'speedLeaderboard'), orderBy('timeTaken', 'asc'), limit(10));
+            const querySnapshot = await getDocs(speedQuery);
+
+            querySnapshot.forEach((doc) => {
+                const data = doc.data();
+                const listItem = document.createElement('li');
+                listItem.textContent = `${data.username}: ${data.score} points in ${data.timeTaken} seconds`;
+                speedLeaderboard.appendChild(listItem);
+            });
+        }
+
+        // Call the displayPointsLeaderboard and displaySpeedLeaderboard functions to initially populate the leaderboards
+        displayPointsLeaderboard();
+        displaySpeedLeaderboard();
     </script>
 </body>
+</html>
