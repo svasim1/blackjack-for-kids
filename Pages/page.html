@@ -67,7 +67,7 @@
                 querySnapshot.forEach((doc) => {
                     const data = doc.data();
                     const listItem = document.createElement('li');
-                    listItem.textContent = `${data.username}: 💲${data.score}`;
+                    listItem.textContent = `${data.username}: 💲${humanRead(data.score)}`;
                     pointsLeaderboard.appendChild(listItem);
                 });
         }
