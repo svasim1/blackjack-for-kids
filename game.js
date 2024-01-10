@@ -1,5 +1,6 @@
 import { Cards } from "./cards.js";
 
+// Dictionary of card names
 let values = {
   1: "ace",
   2: "2",
@@ -26,19 +27,28 @@ let deck = new Cards();
   }
 });
 
-deck.shuffle();
+// Shuffle button
+document.getElementById("shuffleButton").addEventListener("click", () => {
+  deck.shuffle();
+});
 
-let dealtCard = deck.dealCard();
-let suit = deck.getCardSuit(dealtCard);
-let value = deck.getCardValue(dealtCard);
-let id = values[dealtCard.id];
+// Hit button
+document.getElementById("hitButton").addEventListener("click", () => {
+  hit();
+});
 
-let cardImage = `${id}_of_${suit}`;
+function hit() {
+  let dealtCard = deck.dealCard();
+  let suit = deck.getCardSuit(dealtCard);
+  let value = deck.getCardValue(dealtCard);
+  let id = values[dealtCard.id];
+  let cardImage = `${id}_of_${suit}`;
 
-document.getElementById(
-  "hand-total"
-).innerHTML = `Dealt card: ${value} of ${suit} with id: ${id}`;
+  document.getElementById(
+    "hand-total"
+  ).innerHTML = `Dealt card: ${value} of ${suit} with id: ${id}`;
 
-document.getElementById(
-  "hand-cards"
-).innerHTML = `<img src="cards/${cardImage}.png" style="width: 50px; height: auto"></img>`;
+  document.getElementById(
+    "hand-cards"
+  ).innerHTML = `<img src="cards/${cardImage}.png" style="width: 50px; height: auto"></img>`;
+}
