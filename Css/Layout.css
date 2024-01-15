@@ -1,0 +1,43 @@
+body {
+    margin: 0px;
+}
+
+.header {
+    display: flex;
+    justify-content: start;
+    padding-left: 10px;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: green;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    border-radius: 0px;
+}
+
+.footer .copy {
+    color: #000000;
+    order: 1; 
+    align-self: center;
+}
+
+.bottom-links {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px 0; 
+    flex-wrap: wrap; 
+    order: 2; 
+}
+
+.bottom-links .links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px; 
+}
