@@ -35,11 +35,9 @@ async function displayPointsLeaderboard() {
 
     pointsLeaderboard.innerHTML = '';
 
-    // fetch data from Firestore
     const pointsQuery = query(collection(db, 'pointsLeaderboard'), orderBy('score', 'desc'), limit(10));
     const querySnapshot = await getDocs(pointsQuery);
 
-    // display said data
     querySnapshot.forEach((doc) => {
         const data = doc.data();
         const listItem = document.createElement('li');
@@ -54,11 +52,9 @@ async function displayTimedLeaderboard(leaderboardId, netWorthThreshold, collect
 
     leaderboard.innerHTML = '';
 
-    // fetch data from Firestore
     const leaderboardQuery = query(collection(db, collectionName), orderBy('timeTaken', 'asc'), limit(10));
     const querySnapshot = await getDocs(leaderboardQuery);
 
-    // display said data
     querySnapshot.forEach((doc) => {
         const data = doc.data();
         console.log(data.username, data.score, data.score >= netWorthThreshold);
