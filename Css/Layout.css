@@ -1,28 +1,84 @@
 body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     margin: 0px;
+    font-family: "Rokkitt", "Times New Roman", Times, serif;
+    font-weight: bold;
+    background-image: url("https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSrtNNt0b_o_CLb5DzjrO53EgjyJ6U5pd-DUI6k_Mr4CiQMD2sV");
 }
 
 .header {
     display: flex;
     justify-content: start;
-    padding-left: 10px;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    background-image: url("https://maps.w3reforged.com/maps/categories/other/1x1-308356/mini-map-1x1-308356.jpg");
+    width: 100%;
+}
+
+.header a {
+    color: white;
+    text-decoration: none;
+    font-size: x-large;
+    font-weight: bolder;
+}
+
+.gameTitle {
+    color: white;
+    font-weight: bold;
+}
+
+.gameSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    padding: 20px;
+    background-image: url("https://maps.w3reforged.com/maps/categories/other/1x1-308356/mini-map-1x1-308356.jpg");
+    border-radius: 15px;
+    border-style: solid;
+    border-color: #fff;
+    width: 60%;
+    height: 600px;
+    min-width: 510px;
+}
+
+.leaderboardTitle {
+    color: white;
+    font-weight: bold;
+}
+
+.leaderboard {
+    color: #fff;
+    padding: 20px;
+    background-image: url("https://maps.w3reforged.com/maps/categories/other/1x1-308356/mini-map-1x1-308356.jpg");
+    border-radius: 15px;
+    border-style: solid;
+    border-color: #fff;
+    width: 60%;
+    min-width: 510px;
 }
 
 .footer {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    background-color: green;
+    background-image: url("https://maps.w3reforged.com/maps/categories/other/1x1-308356/mini-map-1x1-308356.jpg");
     padding: 0px;
-    margin: 0px;
+    margin-top: 20px;
     border: 0px;
     border-radius: 0px;
+    width: 100%;
 }
 
 .footer .copy {
-    color: #000000;
+    color: #ffffff;
     order: 1; 
     align-self: center;
+    padding-top: 20px;
+    font-weight: bold;
 }
 
 .bottom-links {
@@ -39,5 +95,10 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 0 20px; 
+}
+
+.bottom-links .links a {
+    text-decoration: none;
+    color: white;
+    line-height: 1.5 !important;
 }
