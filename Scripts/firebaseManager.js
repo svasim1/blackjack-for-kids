@@ -59,7 +59,6 @@ async function displayTimedLeaderboard(leaderboardId, netWorthThreshold, collect
 
     querySnapshot.forEach((doc) => {
         const data = doc.data();
-        console.log(data.username, data.score, data.score >= netWorthThreshold);
         if (data.score > netWorthThreshold) {
             const listItem = document.createElement('li');
             if (data.timeTaken == 1) {
