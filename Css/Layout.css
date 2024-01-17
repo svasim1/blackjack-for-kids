@@ -1,3 +1,5 @@
+/* Här jobbar Ted Strömne med CSS för hemsidan */
+
 body {
     display: flex;
     align-items: center;
@@ -5,12 +7,12 @@ body {
     margin: 0px;
     font-family: "Rokkitt", "Times New Roman", Times, serif;
     font-weight: bold;
-    background-image: url("https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSrtNNt0b_o_CLb5DzjrO53EgjyJ6U5pd-DUI6k_Mr4CiQMD2sV");
+    background-image: url("https://png.pngtree.com/thumb_back/fw800/background/20210813/pngtree-blue-pattern-background-image_761983.jpg");
 }
 
 .header {
     display: flex;
-    justify-content: start;
+    justify-content: space-between;
     padding-top: 20px;
     padding-bottom: 20px;
     background-image: url("https://maps.w3reforged.com/maps/categories/other/1x1-308356/mini-map-1x1-308356.jpg");
@@ -23,6 +25,19 @@ body {
     font-size: x-large;
     font-weight: bolder;
     margin-left: 20px;
+}
+
+.nav-items {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+  
+.nav-items a {
+    text-decoration: none;
+    color: #ffffff;
+    padding: 0px 20px;
 }
 
 .gameTitle {

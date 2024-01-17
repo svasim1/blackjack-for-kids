@@ -1,3 +1,5 @@
+// Här jobbar jag (Ted Strömne) med Firebase för att spara datan vi tar emot från och skickar till andra moduler
+
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js';
 import { getFirestore, collection, getDocs, query, orderBy, limit } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js';
 
@@ -19,7 +21,7 @@ const MuskNetWorth = 245000000000; // 245,000,000,000
 const BezosNetWorth = 171400000000; // 171,400,000,000
 const ZuckerNetWorth = 127000000000; // 127,000,000,000
 
-// a function to make large numbers more readable by adding commas
+// a function I found online to make large numbers more readable by adding commas
 // for example, 4000000 becomes 4,000,000
 let humanRead = (num,intSep = ',',floatSep = '.') => {
     return new Intl
@@ -60,8 +62,13 @@ async function displayTimedLeaderboard(leaderboardId, netWorthThreshold, collect
         console.log(data.username, data.score, data.score >= netWorthThreshold);
         if (data.score > netWorthThreshold) {
             const listItem = document.createElement('li');
-            listItem.textContent = `${data.username}: 💲${humanRead(data.score)} in ${data.timeTaken} seconds`;
-            leaderboard.appendChild(listItem);
+            if (data.timeTaken == 1) {
+                listItem.textContent = `${data.username}: 💲${humanRead(data.score)} in ${data.timeTaken} minute`;
+                leaderboard.appendChild(listItem);
+            } else {
+                listItem.textContent = `${data.username}: 💲${humanRead(data.score)} in ${data.timeTaken} minutes`;
+                leaderboard.appendChild(listItem);
+            }
         }
     });
 }
