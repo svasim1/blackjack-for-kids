@@ -28,6 +28,10 @@ body {
     height: 60px;
 }
 
+.logo-img {
+    height: 60px;
+}
+
 .nav-items {
     display: flex;
     justify-content: space-around;
@@ -43,42 +47,6 @@ body {
     color: #ffffff;
     padding: 0px 20px;
     height: 60px;
-}
-
-.gameTitle {
-    color: white;
-    font-weight: bold;
-}
-
-.gameSection {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    padding: 20px;
-    background-image: url("https://maps.w3reforged.com/maps/categories/other/1x1-308356/mini-map-1x1-308356.jpg");
-    border-radius: 15px;
-    border-style: solid;
-    border-color: #fff;
-    width: 60%;
-    height: 600px;
-    min-width: 510px;
-}
-
-.leaderboardTitle {
-    color: white;
-    font-weight: bold;
-}
-
-.leaderboard {
-    color: #fff;
-    padding: 20px;
-    background-image: url("https://maps.w3reforged.com/maps/categories/other/1x1-308356/mini-map-1x1-308356.jpg");
-    border-radius: 15px;
-    border-style: solid;
-    border-color: #fff;
-    width: 60%;
-    min-width: 510px;
 }
 
 .footer {
