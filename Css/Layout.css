@@ -13,18 +13,19 @@ body {
 .header {
     display: flex;
     justify-content: space-between;
-    padding-top: 20px;
-    padding-bottom: 20px;
     background-image: url("https://maps.w3reforged.com/maps/categories/other/1x1-308356/mini-map-1x1-308356.jpg");
     width: 100%;
 }
 
 .header a {
+    display: flex;
+    align-items: center;
     color: white;
     text-decoration: none;
     font-size: x-large;
     font-weight: bolder;
     margin-left: 20px;
+    height: 60px;
 }
 
 .nav-items {
@@ -32,12 +33,16 @@ body {
     justify-content: space-around;
     align-items: center;
     flex-wrap: nowrap;
+    height: 100%;
 }
   
 .nav-items a {
+    display: flex;
+    align-items: center;
     text-decoration: none;
     color: #ffffff;
     padding: 0px 20px;
+    height: 60px;
 }
 
 .gameTitle {
