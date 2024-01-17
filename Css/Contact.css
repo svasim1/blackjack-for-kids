@@ -1,0 +1,19 @@
+.contactTitle {
+    color: white;
+    font-weight: bold;
+}
+
+.contactSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    padding: 20px;
+    background-image: url("https://maps.w3reforged.com/maps/categories/other/1x1-308356/mini-map-1x1-308356.jpg");
+    border-radius: 15px;
+    border-style: solid;
+    border-color: #fff;
+    width: 60%;
+    height: 600px;
+    min-width: 510px;
+}
