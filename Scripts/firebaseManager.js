@@ -17,12 +17,12 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-const MuskNetWorth = 245000000000; // 245,000,000,000
+const MuskNetWorth = 245000000000; // 245,000,000,000 (just making it easier to read the numbers with comments)
 const BezosNetWorth = 171400000000; // 171,400,000,000
 const ZuckerNetWorth = 127000000000; // 127,000,000,000
 
 // a function I found online to make large numbers more readable by adding commas
-// for example, 4000000 becomes 4,000,000
+// for example, 4000000 becomes 4,000,000 (pretty neat, huh)
 let humanRead = (num,intSep = ',',floatSep = '.') => {
     return new Intl
     .NumberFormat('en-US')
@@ -31,7 +31,7 @@ let humanRead = (num,intSep = ',',floatSep = '.') => {
     .replaceAll(',',intSep);
 }
 
-// function to fetch and display 'most money earned' leaderboard
+// fetch and display 'most money earned' leaderboard
 async function displayPointsLeaderboard() {
     const pointsLeaderboard = document.getElementById('pointsLeaderboard');
 
@@ -48,7 +48,7 @@ async function displayPointsLeaderboard() {
     });
 }
 
-// function to fetch and display timed leaderboard data
+// fetch and display speedrun leaderboard data
 async function displayTimedLeaderboard(leaderboardId, netWorthThreshold, collectionName) {
     const leaderboard = document.getElementById(leaderboardId);
 
