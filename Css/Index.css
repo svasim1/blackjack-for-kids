@@ -1,3 +1,5 @@
+/* Ted Strömne jobbar fortfarande med CSS:n, även för index page 🤯 */
+
 .gameTitle {
     color: white;
     font-weight: bold;
@@ -5,17 +7,41 @@
 
 .gameSection {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    padding: 20px;
-    background-image: url("https://maps.w3reforged.com/maps/categories/other/1x1-308356/mini-map-1x1-308356.jpg");
+    justify-content: space-between;
+    align-items: end;
     border-radius: 15px;
     border-style: solid;
     border-color: #fff;
     width: 60%;
     height: 600px;
     min-width: 510px;
+    position: relative;
+    background-image: url("../Images/Bord2.png");
+    background-size: cover;
+}
+
+/* The player's hand is on the left */
+.gameSection .ownHandDiv {
+    z-index: 2;
+    margin-left: 16%;
+    margin-bottom: 20%;
+}
+
+.gameSection .ownHand {
+    height: 170px;
+    width: 115px;
+}
+
+/* Dealer's hand is on the right */
+.gameSection .dealerHandDiv { 
+    z-index: 2;
+    margin-right: 15%;
+    margin-bottom: 20%;
+}
+
+.gameSection .dealerHand {
+    height: 170px;
+    width: 115px;
 }
 
 .leaderboardTitle {

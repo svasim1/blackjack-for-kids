@@ -1,4 +1,5 @@
 // Här jobbar jag (Ted Strömne) med Firebase för att spara datan vi tar emot från och skickar till andra moduler
+// Jag märkte i efterhand att jag skrev kommentarerna högst upp i svenska men alla andra i engelska... 🤔
 
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js';
 import { getFirestore, collection, getDocs, query, orderBy, limit } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js';
@@ -22,7 +23,7 @@ const BezosNetWorth = 171400000000; // 171,400,000,000
 const ZuckerNetWorth = 127000000000; // 127,000,000,000
 
 // a function I found online to make large numbers more readable by adding commas
-// for example, 4000000 becomes 4,000,000 (pretty neat, huh)
+// for example, 4000000 becomes 4,000,000 (pretty neat, huh 😏)
 let humanRead = (num,intSep = ',',floatSep = '.') => {
     return new Intl
     .NumberFormat('en-US')
@@ -32,6 +33,9 @@ let humanRead = (num,intSep = ',',floatSep = '.') => {
 }
 
 // fetch and display 'most money earned' leaderboard
+// A lot of the code here is from ChatGPT, which I wanted to avoid using so I could actually learn from writing my
+// code, but I can't find shit about Firebase online so... 🤷‍♂️ I will try to rewrite these functions if I have the
+// time, but if you're reading this then I did not, in fact, have the time. Either that or I'm lazy.
 async function displayPointsLeaderboard() {
     const pointsLeaderboard = document.getElementById('pointsLeaderboard');
 
