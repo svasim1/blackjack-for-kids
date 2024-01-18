@@ -1,4 +1,6 @@
 import { Cards } from "./cards.js";
+import { addPlayerCard, getPlayerBusy } from "./playerManager.js";
+import { addHouseCard } from "./houseManager.js";
 
 // Dictionary of card names
 let values = {
@@ -18,6 +20,7 @@ let values = {
 };
 
 let deck = new Cards();
+let playerStand = false;
 
 // Create a full deck of 52 cards
 ["hearts", "diamonds", "clubs", "spades"].forEach((suit) => {
@@ -27,28 +30,46 @@ let deck = new Cards();
   }
 });
 
-// Shuffle button
-document.getElementById("shuffleButton").addEventListener("click", () => {
-  deck.shuffle();
-});
-
 // Hit button
 document.getElementById("hitButton").addEventListener("click", () => {
   hit();
 });
 
-function hit() {
+// Stand button
+document.getElementById("standButton").addEventListener("click", () => {
+  stand();
+});
+
+function stand() {
+  document.getElementById("hitButton").disabled = true;
+  document.getElementById("standButton").disabled = true;
+
+  playerStand = true;
+  hit();
+}
+
+export function hit() {
   let dealtCard = deck.dealCard();
-  let suit = deck.getCardSuit(dealtCard);
-  let value = deck.getCardValue(dealtCard);
+
   let id = values[dealtCard.id];
+  let value = deck.getCardValue(dealtCard);
+  let suit = deck.getCardSuit(dealtCard);
   let cardImage = `${id}_of_${suit}`;
 
-  document.getElementById(
-    "hand-total"
-  ).innerHTML = `Dealt card: ${value} of ${suit} with id: ${id}`;
+  if (!playerStand) {
+    addPlayerCard({id, value, suit, cardImage})
+  } else {
+    addHouseCard({id, value, suit, cardImage})
+  }
 
   document.getElementById(
     "hand-cards"
   ).innerHTML = `<img src="cards/${cardImage}.png" style="width: 50px; height: auto"></img>`;
+}
+
+
+
+window.onload = function() {
+  deck.shuffle();
+  hit();
 }
