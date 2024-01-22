@@ -1,5 +1,9 @@
 import { Cards } from "./cards.js";
-import { addPlayerCard, getPlayerBusy } from "./playerManager.js";
+import {
+  addPlayerCard,
+  getPlayerStand,
+  setPlayerStand,
+} from "./playerManager.js";
 import { addHouseCard } from "./houseManager.js";
 
 // Dictionary of card names
@@ -20,7 +24,6 @@ let values = {
 };
 
 let deck = new Cards();
-let playerStand = false;
 
 // Create a full deck of 52 cards
 ["hearts", "diamonds", "clubs", "spades"].forEach((suit) => {
@@ -44,7 +47,7 @@ function stand() {
   document.getElementById("hitButton").disabled = true;
   document.getElementById("standButton").disabled = true;
 
-  playerStand = true;
+  setPlayerStand(true);
   hit();
 }
 
@@ -56,20 +59,14 @@ export function hit() {
   let suit = deck.getCardSuit(dealtCard);
   let cardImage = `${id}_of_${suit}`;
 
-  if (!playerStand) {
-    addPlayerCard({id, value, suit, cardImage})
+  if (!getPlayerStand()) {
+    addPlayerCard({ id, value, suit, cardImage });
   } else {
-    addHouseCard({id, value, suit, cardImage})
+    addHouseCard({ id, value, suit, cardImage });
   }
-
-  document.getElementById(
-    "hand-cards"
-  ).innerHTML = `<img src="cards/${cardImage}.png" style="width: 50px; height: auto"></img>`;
 }
 
-
-
-window.onload = function() {
+window.onload = function () {
   deck.shuffle();
   hit();
-}
+};
