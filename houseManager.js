@@ -1,9 +1,9 @@
 import { hit } from "./game.js";
-import { playerWin } from "./playerManager.js";
 import { getResult } from "./getResult.js";
+import { playerHandTotal } from "./playerManager.js";
 
 let houseHand = [];
-let houseWin = false;
+let houseHandTotal = 0;
 
 export function addHouseCard(card) {
   houseHand.push(card);
@@ -12,17 +12,14 @@ export function addHouseCard(card) {
 }
 
 function updateHand() {
-  let handTotal = houseHand.reduce((total, card) => total + card.value, 0);
+  let houseHandTotal = houseHand.reduce((total, card) => total + card.value, 0);
 
-  if (handTotal < 17) {
+  if (houseHandTotal < 17) {
     hit();
-    console.log(getResult(playerWin, houseWin));
-  } else if (handTotal === 21) {
-    houseWin = true;
-    console.log(getResult(playerWin, houseWin));
   }
 
-  updateUI(handTotal);
+  updateUI(houseHandTotal);
+  console.log(getResult(houseHandTotal, playerHandTotal));
 }
 
 function updateUI() {
@@ -35,3 +32,5 @@ function updateUI() {
     document.getElementById("house-cards").appendChild(img);
   });
 }
+
+export { houseHandTotal };

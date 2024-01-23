@@ -3,8 +3,10 @@ import {
   addPlayerCard,
   getPlayerStand,
   setPlayerStand,
+  playerHandTotal,
 } from "./playerManager.js";
-import { addHouseCard } from "./houseManager.js";
+import { addHouseCard, houseHandTotal } from "./houseManager.js";
+import { getResult } from "./getResult.js";
 
 // Dictionary of card names
 let values = {

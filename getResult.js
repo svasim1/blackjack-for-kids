@@ -1,11 +1,17 @@
-export function getResult(playerWin, houseWin) {
-  if (playerWin && houseWin) {
-    return "Draw";
-  } else if (playerWin) {
-    return "Player wins";
-  } else if (houseWin) {
-    return "House wins";
-  } else {
-    return "Error";
+export function getResult(houseHandTotal, playerHandTotal) {
+  let result = "";
+
+  if (playerHandTotal > 21) {
+    result = "You busted!";
+  } else if (houseHandTotal > 21) {
+    result = "House busted! You win!";
+  } else if (houseHandTotal <= 21 && houseHandTotal > playerHandTotal) {
+    result = "You lost!";
+  } else if (playerHandTotal === houseHandTotal) {
+    result = "Draw!";
+  } else if (playerHandTotal <= 21 && playerHandTotal > houseHandTotal) {
+    result = "You win!";
   }
+
+  return result;
 }

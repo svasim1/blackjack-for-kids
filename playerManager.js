@@ -1,9 +1,8 @@
 import { hit } from "./game.js";
-import { addHouseCard } from "./houseManager.js";
 
 let playerHand = [];
-let playerWin = false;
 let playerStand = false;
+let playerHandTotal = 0;
 
 export function setPlayerStand(value) {
   playerStand = value;
@@ -21,29 +20,31 @@ export function addPlayerCard(card) {
 
 // Update the player's hand
 function updateHand() {
-  let handTotal = playerHand.reduce((total, card) => total + card.value, 0);
-  updateUI(handTotal);
+  let playerHandTotal = playerHand.reduce(
+    (total, card) => total + card.value,
+    0
+  );
+  updateUI(playerHandTotal);
 }
 
 // Update the UI
-function updateUI(handTotal) {
+function updateUI(playerHandTotal) {
   let handTotalElement = document.getElementById("hand-total");
   let hitButton = document.getElementById("hitButton");
   let buttons = document.getElementsByClassName("button");
 
-  handTotalElement.innerHTML = `Hand total: ${handTotal}`;
+  handTotalElement.innerHTML = `Hand total: ${playerHandTotal}`;
 
   // Check if player has won or lost
-  if (handTotal === 21) {
+  if (playerHandTotal === 21) {
     for (let button of buttons) {
       button.disabled = true;
     }
     handTotalElement.innerHTML += " - Blackjack!";
 
-    playerWin = true;
     setPlayerStand(true);
     hit();
-  } else if (handTotal > 21) {
+  } else if (playerHandTotal > 21) {
     for (let button of buttons) {
       button.disabled = true;
     }
@@ -64,5 +65,5 @@ function updateUI(handTotal) {
   });
 }
 
-// Export the playerWin variable
-export { playerWin };
+// Export the player's hand total
+export { playerHandTotal };
