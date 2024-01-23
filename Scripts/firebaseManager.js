@@ -33,10 +33,6 @@ let humanRead = (num,intSep = ',',floatSep = '.') => {
 }
 
 // fetch and display 'most money earned' leaderboard
-// A lot of the code here is from ChatGPT, which I wanted to avoid using so I could actually learn from writing my
-// code, but I can't find shit about Firebase online so... 🤷‍♂️ I will try to rewrite these functions if I have the
-// time, but if you're reading this then I did not, in fact, have the time. Either that or I'm lazy, 
-// whichever one lowers my grades the least.
 async function displayPointsLeaderboard() {
     const pointsLeaderboard = document.getElementById('pointsLeaderboard');
 

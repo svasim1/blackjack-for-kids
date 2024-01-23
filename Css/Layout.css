@@ -7,13 +7,14 @@ body {
     margin: 0px;
     font-family: "Rokkitt", "Times New Roman", Times, serif;
     font-weight: bold;
-    background-image: url("https://png.pngtree.com/thumb_back/fw800/background/20210813/pngtree-blue-pattern-background-image_761983.jpg");
+    background-image: url("../Images/Background_.png");
+    background-size: cover;
 }
 
 .header {
     display: flex;
     justify-content: space-between;
-    background-image: url("https://maps.w3reforged.com/maps/categories/other/1x1-308356/mini-map-1x1-308356.jpg");
+    background-image: url("https://png.pngtree.com/thumb_back/fw800/background/20210813/pngtree-blue-pattern-background-image_761983.jpg");
     width: 100%;
 }
 
@@ -53,7 +54,7 @@ body {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    background-image: url("https://maps.w3reforged.com/maps/categories/other/1x1-308356/mini-map-1x1-308356.jpg");
+    background-image: url("https://png.pngtree.com/thumb_back/fw800/background/20210813/pngtree-blue-pattern-background-image_761983.jpg");
     padding: 0px;
     margin-top: 20px;
     border: 0px;

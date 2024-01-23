@@ -65,15 +65,14 @@
     height: 50px;
     width: 50px;
     margin-left: 20.5%;
-    background-color: darkslategrey;
-    color: #fff;
-    font-weight: bold;
+    background-image: url("../Images/Hit_Button_2.png");
+    background-position: center;
+    background-size: cover;
 }
 
 .hitBtn:hover {
     height: 51px;
     width: 51px;
-    background-color: rgb(73, 92, 92);
     margin-left: 20.4%;
 }
 
@@ -82,15 +81,14 @@
     height: 50px;
     width: 50px;
     margin-right: 19%;
-    background-color: darkslategrey;
-    color: #fff;
-    font-weight: bold;
+    background-image: url("../Images/Stand_Button_2.png");
+    background-position: center;
+    background-size: cover;
 }
 
 .standBtn:hover {
     height: 51px;
     width: 51px;
-    background-color: rgb(73, 92, 92);
     margin-right: 18.9%;
 }
 
@@ -102,7 +100,7 @@
 .leaderboard {
     color: #fff;
     padding: 20px;
-    background-image: url("https://maps.w3reforged.com/maps/categories/other/1x1-308356/mini-map-1x1-308356.jpg");
+    background-image: url("https://png.pngtree.com/thumb_back/fw800/background/20210813/pngtree-blue-pattern-background-image_761983.jpg");
     border-radius: 15px;
     border-style: solid;
     border-color: #fff;
