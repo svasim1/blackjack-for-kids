@@ -14,25 +14,44 @@
 // }
 
 function MeToo() {
-    alert("Yay!")
+    alert("Yay!");
 }
 
-function playButton() {
+function playBtn() {
+    var menu = document.getElementById("menuSection");
     var game = document.getElementById("gameSection");
-    var menu = document.getElementById("menuSection")
-    menu.style.display = "none"
+    menu.style.display = "none";
     game.style.display = "flex";
+}
+
+function optBtn() {
+    var menu = document.getElementById("menuSection");
+    var options = document.getElementById("optSection");
+    menu.style.display = "none";
+    options.style.display = "flex";
+}
+
+function ldrBrdBtn() {
+    var ldrBrd = document.getElementById("leaderboard");
+    var menu = document.getElementById("menuSection");
+    menu.style.display = "none";
+    ldrBrd.style.display = "block";
 }
 
 function backToMenu() {
     var game = document.getElementById("gameSection");
     var menu = document.getElementById("menuSection");
+    var options = document.getElementById("optSection");
+    var ldrBrd = document.getElementById("leaderboard");
     menu.style.display = "flex";
     game.style.display = "none";
+    options.style.display = "none";
+    ldrBrd.style.display = "none";
 }
 
 window.onkeydown = keyPressed;
 
+// if esc is pressed, run backToMenu(), which basically is the reverse of playBtn()
 function keyPressed(event) {
     if (event.keyCode == 27) {
         backToMenu();

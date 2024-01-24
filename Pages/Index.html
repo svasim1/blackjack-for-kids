@@ -11,6 +11,9 @@
 </head>
 
 <body>
+    <audio autoplay loop>
+        <source src="../Music/y2mate.com - Kids Playing 1 Hour of Instrumental Soothing Music for kids fun Loop 1h Relaxing Music.mp3">
+    </audio>
 
     <header class="header">
         <a href="Index.html" class="logo">
@@ -27,9 +30,9 @@
     
     <section class="menuSection" id="menuSection">
         <div class="menuBtnsDiv" id="menuButtonsDiv">
-            <button class="menuPlayBtn" id="menuPlayBtn" onclick="playButton()"></button>
-            <button class="menuOptBtn" id="menuOptBtn"></button>
-            <button class="menuLdrBrdBtn" id="menuLdrBrdBtn"></button>
+            <button class="menuPlayBtn" id="menuPlayBtn" onclick="playBtn()"></button>
+            <button class="menuOptBtn" id="menuOptBtn" onclick="optBtn()"></button>
+            <button class="menuLdrBrdBtn" id="menuLdrBrdBtn" onclick="ldrBrdBtn()"></button>
         </div>
     </section>
 
@@ -48,7 +51,11 @@
         </div>
     </section>
 
-    <section class="leaderboard" style="display: none;">
+    <section class="optSection" id="optSection" style="display: none;">
+        <h2>Options go here!</h2>
+    </section>
+
+    <section class="leaderboard" id="leaderboard" style="display: none;">
         <h2>Most Money Achieved 🤑</h2>
         <ol id="pointsLeaderboard"></ol>
 
