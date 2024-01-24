@@ -32,7 +32,7 @@ let humanRead = (num,intSep = ',',floatSep = '.') => {
     .replaceAll(',',intSep);
 }
 
-// fetch and display 'most money earned' leaderboard
+// function to display 'most money earned' leaderboard
 async function displayPointsLeaderboard() {
     const pointsLeaderboard = document.getElementById('pointsLeaderboard');
 
@@ -49,7 +49,7 @@ async function displayPointsLeaderboard() {
     });
 }
 
-// fetch and display speedrun leaderboard data
+// function to display speedrun leaderboard (Musk & Co.)
 async function displayTimedLeaderboard(leaderboardId, netWorthThreshold, collectionName) {
     const leaderboard = document.getElementById(leaderboardId);
 

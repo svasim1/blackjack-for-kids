@@ -25,26 +25,30 @@
 
     <h1 class="gameTitle">Blackjack</h1>
     
-    <section class="gameSection">
-        <div class="handsDiv">
-            <div class="ownHandDiv">
-                <img src="../Images/backsida.png" class="ownHand">
-            </div>
-            <div class="dealerHandDiv">
-                <img src="../Images/backsida.png" class="dealerHand">
-            </div>
-        </div>
-        <div class="buttonsDiv">
-            <button class="hitBtn"></button>
-            <button class="standBtn"></button>
+    <section class="menuSection" id="menuSection">
+        <div class="menuBtnsDiv" id="menuButtonsDiv">
+            <button class="menuPlayBtn" id="menuPlayBtn" onclick="playButton()"></button>
+            <button class="menuOptBtn" id="menuOptBtn"></button>
+            <button class="menuLdrBrdBtn" id="menuLdrBrdBtn"></button>
         </div>
     </section>
 
-    <!-- Everything from this point and below (except the footer and script) is subject to change -->
-    <!-- The leaderboard is eventually going to be moved up into gameSection and accessed through a button -->
-    <h1 class="leaderboardTitle">Blackjack Leaderboard</h1>
-    
-    <section class="leaderboard">
+    <section class="gameSection" id="gameSection" style="display: none;">
+        <div class="handsDiv" id="handsDiv">
+            <div class="ownHandDiv" id="ownHandDiv">
+                <img src="../Images/backsida.png" class="ownHand" id="ownHand">
+            </div>
+            <div class="dealerHandDiv" id="dealerHandDiv">
+                <img src="../Images/backsida.png" class="dealerHand" id="dealerHand">
+            </div>
+        </div>
+        <div class="btnsDiv" id="btnsDiv">
+            <button class="hitBtn" id="hitBtn" onclick="MeToo()"></button>
+            <button class="standBtn" id="standBtn" onclick="MeToo()"></button>
+        </div>
+    </section>
+
+    <section class="leaderboard" style="display: none;">
         <h2>Most Money Achieved 🤑</h2>
         <ol id="pointsLeaderboard"></ol>
 
@@ -70,5 +74,6 @@
       </footer>
 
 <script type="module" src="../Scripts/firebaseManager.js"></script>
+<script src="../Scripts/index.js"></script>
 </body>
 </html>

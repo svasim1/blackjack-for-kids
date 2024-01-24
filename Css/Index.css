@@ -53,7 +53,7 @@
     width: 115px;
 }
 
-.buttonsDiv {
+.btnsDiv {
     height: 25%;
     width: 100%;
     display: flex;
@@ -90,6 +90,54 @@
     height: 51px;
     width: 51px;
     margin-right: 18.9%;
+}
+
+.menuSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    border-style: solid;
+    border-color: #fff;
+    width: 60%;
+    height: 600px;
+    min-width: 510px;
+    position: relative;
+    background-image: url("https://png.pngtree.com/thumb_back/fw800/background/20210813/pngtree-blue-pattern-background-image_761983.jpg");
+    background-size: cover;
+}
+
+.menuBtnsDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 400px;
+}
+
+.menuPlayBtn {
+    height: 100px;
+    width: 400px;
+    background-image: url("../Images/Play_Final.png");
+    background-size: cover;
+    border-radius: 22px;
+}
+
+.menuOptBtn {
+    height: 100px;
+    width: 400px;
+    background-image: url("../Images/Options_Final.png");
+    background-size: cover;
+    border-radius: 22px;
+}
+
+.menuLdrBrdBtn {
+    height: 100px;
+    width: 400px;
+    background-image: url("../Images/Leaderboard_Final.png");
+    background-size: cover;
+    border-radius: 22px;
 }
 
 .leaderboardTitle {

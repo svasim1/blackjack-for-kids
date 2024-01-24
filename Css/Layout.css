@@ -14,6 +14,7 @@ body {
 .header {
     display: flex;
     justify-content: space-between;
+    /* this background is ripped from Google and it has watermarks on it, but I honestly couldn't care less */
     background-image: url("https://png.pngtree.com/thumb_back/fw800/background/20210813/pngtree-blue-pattern-background-image_761983.jpg");
     width: 100%;
 }
