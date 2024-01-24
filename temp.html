@@ -9,37 +9,50 @@
       body {
         display: flex;
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
         height: 100vh;
         margin: 0;
-        padding: 0;
+        background-color: green;
       }
-      #table {
-        flex: 0.75;
-        background-color: red;
-      }
+      #table,
+      #houseHand,
       #hand {
-        flex: 0.25;
-        background-color: pink;
         display: flex;
         flex-direction: column;
-      }
-      #hand-cards {
-        background-color: green;
+        align-items: center;
         justify-content: center;
-        flex: 0.75;
       }
-      #hand-total {
-        justify-content: flex-end;
+      .button {
+        padding: 10px 20px;
+        font-size: 20px;
+        margin: 10px;
+      }
+      #hand-total,
+      #house-total {
         text-align: center;
+      }
+      #result {
+        opacity: 0;
+        font-size: 0;
+        transition: opacity 2s, font-size 2s;
+      }
+
+      #result.show {
+        opacity: 1;
+        font-size: 2em;
       }
     </style>
   </head>
   <body>
+    <div id="houseHand">
+      <div id="house-cards"></div>
+      <div id="house-total"></div>
+    </div>
     <div id="table">
       <button id="hitButton" class="button">Hit</button>
       <button id="standButton" class="button">Stand</button>
       <div id="result"></div>
-      <div id="house-cards"></div>
     </div>
     <div id="hand">
       <div id="hand-cards"></div>
