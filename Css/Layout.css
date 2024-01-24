@@ -1,22 +1,15 @@
 /* Här jobbar Ted Strömne med CSS för hemsidans layout */
 
-body {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    margin: 0px;
-    font-family: "Rokkitt", "Times New Roman", Times, serif;
-    font-weight: bold;
-    background-image: url("../Images/Background_.png");
-    background-size: cover;
-}
-
 .header {
     display: flex;
     justify-content: space-between;
     /* this background is ripped from Google and it has watermarks on it, but I honestly couldn't care less */
     background-image: url("https://png.pngtree.com/thumb_back/fw800/background/20210813/pngtree-blue-pattern-background-image_761983.jpg");
     width: 100%;
+    border-bottom-style: solid;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-color: #fff;
 }
 
 .header a {
@@ -28,6 +21,10 @@ body {
     font-weight: bolder;
     margin-left: 20px;
     height: 60px;
+}
+
+.header a:hover {
+    cursor: pointer;
 }
 
 .logo-img {
@@ -51,6 +48,17 @@ body {
     height: 60px;
 }
 
+body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 0px;
+    font-family: "Rokkitt", "Times New Roman", Times, serif;
+    font-weight: bold;
+    background-image: url("../Images/Background_.png");
+    background-size: cover;
+}
+
 .footer {
     display: flex;
     justify-content: center;
@@ -61,6 +69,10 @@ body {
     border: 0px;
     border-radius: 0px;
     width: 100%;
+    border-top-style: solid;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-color: #fff;
 }
 
 .footer .copyright {
@@ -90,5 +102,9 @@ body {
 .bottom-links .links a {
     text-decoration: none;
     color: white;
-    line-height: 1.5 !important;
+    line-height: 1.5;
+}
+
+.links a:hover {
+    cursor: pointer;
 }
