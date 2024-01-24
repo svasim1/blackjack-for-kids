@@ -1,4 +1,6 @@
 import { hit } from "./game.js";
+import { houseHandTotal } from "./houseManager.js";
+import { getResult } from "./getResult.js";
 
 let playerHand = [];
 let playerStand = false;
@@ -18,13 +20,17 @@ export function addPlayerCard(card) {
   updateHand();
 }
 
+function getPlayerHandTotal() {
+  playerHandTotal = playerHand.reduce((total, card) => total + card.value, 0);
+  return playerHandTotal;
+}
+
 // Update the player's hand
 function updateHand() {
-  let playerHandTotal = playerHand.reduce(
-    (total, card) => total + card.value,
-    0
-  );
+  let playerHandTotal = getPlayerHandTotal();
   updateUI(playerHandTotal);
+
+  return playerHandTotal;
 }
 
 // Update the UI
@@ -40,25 +46,22 @@ function updateUI(playerHandTotal) {
     for (let button of buttons) {
       button.disabled = true;
     }
-    handTotalElement.innerHTML += " - Blackjack!";
-
     setPlayerStand(true);
     hit();
   } else if (playerHandTotal > 21) {
     for (let button of buttons) {
       button.disabled = true;
     }
-    handTotalElement.innerHTML += " - Busted!";
-
-    setPlayerStand(true);
-    hit();
+    let result = getResult(houseHandTotal, playerHandTotal);
+    document.getElementById("result").innerHTML = result;
+    document.getElementById("result").classList.add("show");
   }
 
   // Update the cards shown on screen
   document.getElementById("hand-cards").innerHTML = "";
   playerHand.forEach((card) => {
     let img = document.createElement("img");
-    img.src = `cards/${card.cardImage}.png`;
+    img.src = `cards/${card.cardImage}`;
     img.style.width = "50px";
     img.style.height = "auto";
     document.getElementById("hand-cards").appendChild(img);

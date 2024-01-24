@@ -3,10 +3,8 @@ import {
   addPlayerCard,
   getPlayerStand,
   setPlayerStand,
-  playerHandTotal,
 } from "./playerManager.js";
-import { addHouseCard, houseHandTotal } from "./houseManager.js";
-import { getResult } from "./getResult.js";
+import { addHouseCard } from "./houseManager.js";
 
 // Dictionary of card names
 let values = {
@@ -37,7 +35,7 @@ let deck = new Cards();
 
 // Hit button
 document.getElementById("hitButton").addEventListener("click", () => {
-  hit();
+  hit(true, true);
 });
 
 // Stand button
@@ -50,25 +48,32 @@ function stand() {
   document.getElementById("standButton").disabled = true;
 
   setPlayerStand(true);
-  hit();
+  //flip();
+  hit(false, true);
 }
 
-export function hit() {
+export function hit(isPlayer, isShown) {
   let dealtCard = deck.dealCard();
 
   let id = values[dealtCard.id];
   let value = deck.getCardValue(dealtCard);
   let suit = deck.getCardSuit(dealtCard);
-  let cardImage = `${id}_of_${suit}`;
+  let cardImage = isShown ? `${id}_of_${suit}.png` : "card_back.png";
+  let altImage = isShown ? null : `${id}_of_${suit}`;
 
-  if (!getPlayerStand()) {
-    addPlayerCard({ id, value, suit, cardImage });
+  if (isPlayer) {
+    addPlayerCard({ id, value, suit, cardImage, altImage });
+    console.log(isPlayer, isShown);
   } else {
-    addHouseCard({ id, value, suit, cardImage });
+    addHouseCard({ id, value, suit, cardImage, altImage });
+    console.log("house" + isPlayer, isShown);
   }
 }
 
 window.onload = function () {
   deck.shuffle();
-  hit();
+  hit(true, true);
+  hit(true, true);
+  hit(false, true);
+  hit(false, false);
 };

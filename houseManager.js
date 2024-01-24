@@ -15,18 +15,24 @@ function updateHand() {
   let houseHandTotal = houseHand.reduce((total, card) => total + card.value, 0);
 
   if (houseHandTotal < 17) {
-    hit();
+    //hit();
+  } else if (houseHandTotal >= 17) {
+    let result = getResult(houseHandTotal, playerHandTotal);
+    document.getElementById("result").innerHTML = result;
+    document.getElementById("result").classList.add("show");
+    document.getElementById(
+      "house-total"
+    ).innerHTML = `House hand total: ${houseHandTotal}`;
   }
 
-  updateUI(houseHandTotal);
-  console.log(getResult(houseHandTotal, playerHandTotal));
+  updateUI();
 }
 
 function updateUI() {
   document.getElementById("house-cards").innerHTML = "";
   houseHand.forEach((card) => {
     let img = document.createElement("img");
-    img.src = `cards/${card.cardImage}.png`;
+    img.src = `cards/${card.cardImage}`;
     img.style.width = "50px";
     img.style.height = "auto";
     document.getElementById("house-cards").appendChild(img);
