@@ -5,6 +5,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/all.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-solid.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-regular.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-light.css">
     <link rel="stylesheet" href="../Css/Layout.css">
     <link rel="stylesheet" href="../Css/Index.css">
     <title>Blackjack Leaderboard</title>
@@ -18,7 +23,7 @@
     <!-- We don't use href since it would reload the page and therefore reload the audio -->
     <header class="header">
         <a onclick="backToMenu()" class="logo">
-            <img src="https://netgaming.com/wp-content/uploads/2021/04/01_logo_blackjack.png" class="logo-img">
+            <img src="../Images/BlackJacl_logo.png" class="logo-img">
         </a>
         <nav class="nav-items">
             <a onclick="backToMenu()">Home</a>
@@ -28,6 +33,10 @@
     </header>
 
     <h1 class="gameTitle" id="gameTitle">Blackjack</h1>
+
+    <button class="backArrowButton" onclick="back()">
+        <i class="fa-solid fa-arrow-left fa-xl" id="backArrow"></i>
+    </button>
     
     <section class="menuSection" id="menuSection">
         <div class="menuBtnsDiv" id="menuButtonsDiv">
@@ -53,14 +62,19 @@
     </section>
 
     <section class="optSection" id="optSection">
-        <button onclick="playAudio()">Play</button>
-        <button onclick="stopAudio()">Pause</button>
-        <button onclick="raiseVol()">Vol +</button>
-        <button onclick="lowerVol()">Vol -</button>
+        <div class="optSectionButtons">
+            <button onclick="playAudio()">Play</button>
+            <button onclick="stopAudio()">Pause</button>
+        </div>
+        <div class="optSectionSlider">
+            <div class="slidecontainer">
+                <input type="range" min="0.0" step="0.1" max="1.0" value="1" class="slider" id="volumeSlide">
+            </div>
+        </div>
     </section>
 
     <section class="leaderboard" id="leaderboard" style="display: none;">
-        <h2>Most Money Achieved 🤑</h2>
+        <h2 class="Header">Most Money Achieved 🤑</h2>
         <ol id="pointsLeaderboard"></ol>
 
         <h2>Fastest Person to Earn More Than Elon Musk 💸</h2>
@@ -98,7 +112,7 @@
     <h1 class="contactTitle" id="contactTitle">Contact Us</h1>
     
     <section class="contactSection" id="contactSection">
-        <h2>I won't even bother writing something here for now.</h2>
+        <h2>1-800-BLACKJACKIDS</h2>
     </section>
 
     <footer class="footer">

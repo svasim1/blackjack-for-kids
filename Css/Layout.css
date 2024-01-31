@@ -3,8 +3,10 @@
 .header {
     display: flex;
     justify-content: space-between;
-    /* this background is ripped from Google and it has watermarks on it, but I honestly couldn't care less */
-    background-image: url("https://png.pngtree.com/thumb_back/fw800/background/20210813/pngtree-blue-pattern-background-image_761983.jpg");
+    /* this is the old background, it is ripped from Google and it has watermarks on it */
+    /* https://png.pngtree.com/thumb_back/fw800/background/20210813/pngtree-blue-pattern-background-image_761983.jpg */
+    background-image: url("../Images/Blue_background.png");
+    background-size: cover;
     width: 100%;
     border-bottom-style: solid;
     border-bottom-left-radius: 5px;
@@ -63,16 +65,18 @@ body {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    background-image: url("https://png.pngtree.com/thumb_back/fw800/background/20210813/pngtree-blue-pattern-background-image_761983.jpg");
+    background-image: url("../Images/Blue_background.png");
+    background-size: contain;
     padding: 0px;
     margin-top: 20px;
     border: 0px;
     border-radius: 0px;
     width: 100%;
-    border-top-style: solid;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+    border-top: 2px;
+    border-style: solid;
     border-color: #fff;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
 }
 
 .footer .copyright {

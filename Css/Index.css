@@ -5,6 +5,32 @@
     font-weight: bold;
 }
 
+.backArrowButton {
+    position: absolute;
+    margin-top: 170px;
+    margin-right: 53%;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px;
+    border: 0px;
+    border-radius: 50%;
+    z-index: 3;
+}
+
+.backArrowButton:hover {
+    cursor: pointer;
+}
+
+#backArrow {
+    margin-top: 30px;
+    position: absolute;
+    height: 30px;
+    width: 30px;
+}
+
 .menuSection {
     display: flex;
     flex-direction: column;
@@ -17,7 +43,7 @@
     height: 600px;
     min-width: 510px;
     position: relative;
-    background-image: url("https://png.pngtree.com/thumb_back/fw800/background/20210813/pngtree-blue-pattern-background-image_761983.jpg");
+    background-image: url("../Images/Blue_background.png");
     background-size: cover;
 }
 
@@ -156,20 +182,31 @@
     display: none;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     border-radius: 15px;
     border-style: solid;
     border-color: #fff;
     width: 60%;
     height: 600px;
     min-width: 510px;
-    background-image: url("https://png.pngtree.com/thumb_back/fw800/background/20210813/pngtree-blue-pattern-background-image_761983.jpg");
+    background-image: url("../Images/Blue_background.png");
     background-size: cover;
 }
 
+.optSectionButtons {
+    display: flex;
+    flex-direction: row;
+}
+
+.optSectionSlider {
+    display: flex;
+    flex-direction: row;
+}
+
 .optSection button {
-    border-radius: 10px;
-    border-color: #fff;
-    border-style: solid;
+    height: 100px;
+    width: 200px;
+    border-radius: 22px;
 }
 
 .leaderboardTitle {
@@ -180,7 +217,8 @@
 .leaderboard {
     display: none;
     color: #fff;
-    background-image: url("https://png.pngtree.com/thumb_back/fw800/background/20210813/pngtree-blue-pattern-background-image_761983.jpg");
+    background-image: url("../Images/Blue_background.png");
+    background-size: cover;
     border-radius: 15px;
     border-style: solid;
     border-color: #fff;
@@ -188,12 +226,20 @@
     min-width: 510px;
 }
 
+.Header {
+    margin-top: 70px;
+}
+
 .leaderboard h2 {
-    margin: 20px;
+    margin-bottom: 20px;
+    margin-left: 70px;
+    margin-right: 20px;
 }
 
 .leaderboard ol {
-    margin: 20px;
+    margin-bottom: 20px;
+    margin-left: 70px;
+    margin-right: 20px;
 }
 
 .rulesTitle {
@@ -207,7 +253,8 @@
     justify-content: center;
     align-items: center;
     color: #fff;
-    background-image: url("https://png.pngtree.com/thumb_back/fw800/background/20210813/pngtree-blue-pattern-background-image_761983.jpg");
+    background-image: url("../Images/Blue_background.png");
+    background-size: cover;
     border-radius: 15px;
     border-style: solid;
     border-color: #fff;
@@ -231,7 +278,8 @@
     justify-content: center;
     align-items: center;
     color: #fff;
-    background-image: url("https://png.pngtree.com/thumb_back/fw800/background/20210813/pngtree-blue-pattern-background-image_761983.jpg");
+    background-image: url("../Images/Blue_background.png");
+    background-size: cover;
     border-radius: 15px;
     border-style: solid;
     border-color: #fff;

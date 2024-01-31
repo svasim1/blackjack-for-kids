@@ -55,6 +55,10 @@ function toContact() {
     contactTitle.style.display = "block";
 }
 
+back = () => {
+    backToMenu();
+}
+
 function MeToo() {
     alert("Yay!");
 }
@@ -74,23 +78,15 @@ function optBtn() {
 }
 
 function playAudio() {
-    document.getElementById('bgMusic').play()
+    document.getElementById("bgMusic").play()
 }
 
 function stopAudio() {
-    document.getElementById('bgMusic').pause()
+    document.getElementById("bgMusic").pause()
 }
 
-function raiseVol() {
-    if (document.getElementById('bgMusic').volume != 1.0) {
-        document.getElementById('bgMusic').volume += 0.1
-    }
-}
-
-function lowerVol() {
-    if (document.getElementById('bgMusic').volume != 0.0) {
-        document.getElementById('bgMusic').volume -= 0.1
-    }
+document.getElementById("volumeSlide").oninput = function() {
+    document.getElementById("bgMusic").volume = this.value;
 }
 
 function ldrBrdBtn() {
