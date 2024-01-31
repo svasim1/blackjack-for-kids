@@ -7,8 +7,8 @@
 
 .backArrowButton {
     position: absolute;
-    margin-top: 170px;
-    margin-right: 53%;
+    margin-top: 160px;
+    margin-right: 690px;
     height: 30px;
     width: 30px;
     display: flex;
@@ -41,7 +41,8 @@
     border-color: #fff;
     width: 60%;
     height: 600px;
-    min-width: 510px;
+    min-height: 600px;
+    min-width: 758px;
     position: relative;
     background-image: url("../Images/Blue_background.png");
     background-size: cover;
@@ -100,7 +101,8 @@
     border-color: #fff;
     width: 60%;
     height: 600px;
-    min-width: 510px;
+    min-height: 600px;
+    min-width: 758px;
     position: relative;
     background-image: url("../Images/Bord2.png");
     background-size: cover;
@@ -178,24 +180,81 @@
     margin-right: 18.9%;
 }
 
+.chipsBag {
+    position: absolute;
+}
+
+.tenChipDiv {
+    background-image: url("../Images/10_Chip.png");
+    background-size: cover;
+    position: inherit;
+    width: 80px;
+    height: 80px;
+}
+
+.hundredChipDiv {
+    background-image: url("../Images/100_Chip.png");
+    background-size: cover;
+    position: inherit;
+    width: 80px;
+    height: 80px;
+    margin-top: 50px;
+    margin-left: 30px;
+}
+
+.fivehundredChipDiv {
+    background-image: url("../Images/500_Chip.png");
+    background-size: cover;
+    position: inherit;
+    width: 80px;
+    height: 80px;
+    margin-top: 70px;
+    margin-left: 80px;
+}
+
+.moneyCount {
+    position: absolute;
+    margin-left: 170px;
+    margin-top: 90px;
+    color: #fff;
+    font-size: x-large;
+}
+
+.handSum {
+    position: absolute;
+    color: white;
+    font-size: xx-large;
+    margin-left: 165px;
+    margin-bottom: 180px;
+}
+
+.dealerSum {
+    position: absolute;
+    color: white;
+    font-size: xx-large;
+    margin-left: 573px;
+    margin-bottom: 180px;
+}
+
 .optSection {
     display: none;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    flex-direction: row;
     border-radius: 15px;
     border-style: solid;
     border-color: #fff;
     width: 60%;
     height: 600px;
-    min-width: 510px;
+    min-height: 600px;
+    min-width: 758px;
     background-image: url("../Images/Blue_background.png");
     background-size: cover;
 }
 
 .optSectionButtons {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
 .optSectionSlider {
@@ -203,10 +262,45 @@
     flex-direction: row;
 }
 
+.slider {
+    transform: rotate(-90deg);
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 8px;
+    background: white;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    background: black;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+/* For Firefox */
+.slider::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    background: black;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+/* Optional: Remove track styles for a cleaner look */
+.slider::-moz-range-track,
+.slider::-webkit-slider-runnable-track {
+    background: white;
+}
+
 .optSection button {
-    height: 100px;
-    width: 200px;
+    height: 50px;
+    width: 100px;
     border-radius: 22px;
+    margin: 10px;
 }
 
 .leaderboardTitle {
@@ -223,7 +317,8 @@
     border-style: solid;
     border-color: #fff;
     width: 60%;
-    min-width: 510px;
+    min-height: fit-content;
+    min-width: 758px;
 }
 
 .Header {
@@ -260,7 +355,8 @@
     border-color: #fff;
     width: 60%;
     height: 100%;
-    min-width: 510px;
+    min-height: fit-content;
+    min-width: 758px;
 }
 
 .rulesSection h3 {
@@ -285,9 +381,15 @@
     border-color: #fff;
     width: 60%;
     height: 600px;
-    min-width: 510px;
+    min-height: 600px;
+    min-width: 758px;
 }
 
 .contactSection h2 {
     margin: 20px;
+}
+
+.empty {
+    height: 200px;
+    width: 100%;
 }

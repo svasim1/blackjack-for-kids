@@ -1,18 +1,5 @@
 // Ted Strömne fixar Javascript som gömmer och visar element och sådant
 
-// document.getElementById("gameSection")
-    // document.getElementById("HandsDiv")
-    // document.getElementById("ownHandDiv")
-    // document.getElementById("ownHand")
-    // document.getElementById("dealerHandDiv")
-    // document.getElementById("dealerHand")
-    // document.getElementById("btnsDiv")
-
-// function Me() {
-//     document.getElementById("hitBtn").disabled = true;
-//     document.getElementById("standBtn").disabled = true;
-// }
-
 function toRules() {
     var menu = document.getElementById("menuSection");
     var game = document.getElementById("gameSection");

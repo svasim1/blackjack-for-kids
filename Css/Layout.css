@@ -52,9 +52,11 @@
 
 body {
     display: flex;
+    position: relative;
     align-items: center;
     flex-direction: column;
     margin: 0px;
+    min-height: 100vh;
     font-family: "Rokkitt", "Times New Roman", Times, serif;
     font-weight: bold;
     background-image: url("../Images/Background_.png");
@@ -63,12 +65,14 @@ body {
 
 .footer {
     display: flex;
+    position: absolute;
+    bottom: 0;
     justify-content: center;
     flex-direction: column;
     background-image: url("../Images/Blue_background.png");
     background-size: contain;
     padding: 0px;
-    margin-top: 20px;
+    margin-top: 0px;
     border: 0px;
     border-radius: 0px;
     width: 100%;

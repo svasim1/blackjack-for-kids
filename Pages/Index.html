@@ -16,7 +16,9 @@
 </head>
 
 <body>
-    <audio autoplay loop id="bgMusic">
+    <!-- Chrome won't allow me to always consistently autoplay music on the website because of their "policies", -->
+    <!-- so under certain circumstances it won't play automatically. Blame Google, not me. -->
+    <audio id="bgMusic" autoplay loop>
         <source src="../Music/y2mate.com - Kids Playing 1 Hour of Instrumental Soothing Music for kids fun Loop 1h Relaxing Music.mp3">
     </audio>
 
@@ -38,6 +40,7 @@
         <i class="fa-solid fa-arrow-left fa-xl" id="backArrow"></i>
     </button>
     
+    <!-- Main menu section -->
     <section class="menuSection" id="menuSection">
         <div class="menuBtnsDiv" id="menuButtonsDiv">
             <button class="menuPlayBtn" id="menuPlayBtn" onclick="playBtn()"></button>
@@ -46,8 +49,15 @@
         </div>
     </section>
 
+    <!-- Game section -->
     <section class="gameSection" id="gameSection" style="display: none;">
         <div class="handsDiv" id="handsDiv">
+            <div class="handSum">
+                21
+            </div>
+            <div class="dealerSum">
+                21
+            </div>
             <div class="ownHandDiv" id="ownHandDiv">
                 <img src="../Images/backsida.png" class="ownHand" id="ownHand">
             </div>
@@ -56,11 +66,28 @@
             </div>
         </div>
         <div class="btnsDiv" id="btnsDiv">
-            <button class="hitBtn" id="hitBtn" onclick="MeToo()"></button>
-            <button class="standBtn" id="standBtn" onclick="MeToo()"></button>
+            <button class="hitBtn" id="hitBtn" onclick="hitFunction()"></button>
+            <button class="standBtn" id="standBtn" onclick="standFunction()"></button>
+
+            <!-- I'm putting the chips inside the div for buttons because it works better that way -->
+            <div class="chipsBag">
+                <div class="tenChipDiv" id="tenChipDiv">
+                    <a onclick=""></a>
+                </div>
+                <div class="hundredChipDiv" id="hundredChipDiv">
+                    <a onclick=""></a>
+                </div>
+                <div class="fivehundredChipDiv" id="fivehundredChipDiv">
+                    <a onclick=""></a>
+                </div>
+            </div>
+            <div class="moneyCount" id="moneyCount">
+                $610
+            </div>
         </div>
     </section>
 
+    <!-- Options section -->
     <section class="optSection" id="optSection">
         <div class="optSectionButtons">
             <button onclick="playAudio()">Play</button>
@@ -73,6 +100,7 @@
         </div>
     </section>
 
+    <!-- Leaderboard section -->
     <section class="leaderboard" id="leaderboard" style="display: none;">
         <h2 class="Header">Most Money Achieved 🤑</h2>
         <ol id="pointsLeaderboard"></ol>
@@ -87,6 +115,7 @@
         <ol id="zuckerLeaderboard"></ol>
     </section>
 
+    <!-- Rules section -->
     <h1 class="rulesTitle" id="rulesTitle">Rules</h1>
     
     <section class="rulesSection" id="rulesSection">
@@ -109,11 +138,17 @@
             We know you're going to LOVE Blackjack for Kids so just give it a go! Have a great time using your skills and a little good luck to enjoy the best Blackjack game around! <br><br></h3>
     </section>
 
+    <!-- Contact section -->
     <h1 class="contactTitle" id="contactTitle">Contact Us</h1>
     
     <section class="contactSection" id="contactSection">
         <h2>1-800-BLACKJACKIDS</h2>
     </section>
+
+    <!-- This could be a section with some filler text to fill out the page -->
+    <div class="empty">
+
+    </div>
 
     <footer class="footer">
         <div class="copyright">&copy; 2024 Blackjack for Kids</div>
