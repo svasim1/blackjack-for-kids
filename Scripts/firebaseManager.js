@@ -2,7 +2,7 @@
 // Jag märkte i efterhand att jag skrev kommentarerna högst upp i svenska men alla andra i engelska... 🤔
 
 // i needed to rewrite the ENTIRE firebase code because of some issue with importing from firebase...
-// FUCK FIREBASE
+// FUCK FIREBASE 🖕
 
 // Firebase configuration
 const firebaseConfig = {
@@ -53,32 +53,36 @@ function displayPointsLeaderboard() {
     })
 }
 
-// // function to display speedrun leaderboard (Musk & Co.)
-// async function displayTimedLeaderboard(leaderboardId, netWorth, collectionName) {
-//     const leaderboard = document.getElementById(leaderboardId);
+// function to display speedrun leaderboard (Musk & Co.)
+function displayTimedLeaderboard(leaderboardId, netWorth, collectionName) {
+    const leaderboard = document.getElementById(leaderboardId);
 
-//     leaderboard.innerHTML = '';
-
-//     const leaderboardQuery = query(collection(db, collectionName), orderBy('timeTaken', 'asc'), limit(10));
-//     const querySnapshot = await getDocs(leaderboardQuery);
-
-//     querySnapshot.forEach((doc) => {
-//         const data = doc.data();
-//         if (data.score > netWorth) {
-//             const listItem = document.createElement('li');
-//             if (data.timeTaken == 1) {
-//                 listItem.textContent = `${data.username}: 💲${humanRead(data.score)} in ${data.timeTaken} minute`;
-//                 leaderboard.appendChild(listItem);
-//             } else {
-//                 listItem.textContent = `${data.username}: 💲${humanRead(data.score)} in ${data.timeTaken} minutes`;
-//                 leaderboard.appendChild(listItem);
-//             }
-//         }
-//     });
-// }
+    db.collection(collectionName)
+    .orderBy('timeTaken', 'asc')
+    .limit(10)
+    .get()
+    .then(querySnapshot => {
+        querySnapshot.forEach((doc) => {
+            const data = doc.data();
+            const score = data.score
+            const username = data.username
+            const timeTaken = data.timeTaken
+            if (data.score > netWorth) {
+                const listItem = document.createElement('li');
+                if (data.timeTaken == 1) {
+                    listItem.innerHTML = `${username}: 💲${humanRead(score)} in ${timeTaken} minute`;
+                    leaderboard.appendChild(listItem);
+                } else {
+                    listItem.innerHTML = `${username}: 💲${humanRead(score)} in ${timeTaken} minutes`;
+                    leaderboard.appendChild(listItem);
+                }
+            }
+        })
+    })
+}
 
 displayPointsLeaderboard();
-// functionName(leaderboard ID, minimum net worth required, collection name in firebase)
-// displayTimedLeaderboard('muskLeaderboard', MuskNetWorth, 'muskLeaderboard');
-// displayTimedLeaderboard('bezosLeaderboard', BezosNetWorth, 'bezosLeaderboard');
-// displayTimedLeaderboard('zuckerLeaderboard', ZuckerNetWorth, 'zuckerLeaderboard');
+// functionName('leaderboard ID', minimum net worth required, 'collection name in firebase')
+displayTimedLeaderboard('muskLeaderboard', MuskNetWorth, 'muskLeaderboard');
+displayTimedLeaderboard('bezosLeaderboard', BezosNetWorth, 'bezosLeaderboard');
+displayTimedLeaderboard('zuckerLeaderboard', ZuckerNetWorth, 'zuckerLeaderboard');
