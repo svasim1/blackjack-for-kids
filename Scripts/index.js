@@ -149,19 +149,23 @@ var inputElement = document.getElementById("usernameInput");
 inputElement.setAttribute("autocomplete", "off");
 
 // send the username and score to firebase when clicking registerPlayBtn
-const username = document.getElementById("usernameInput");
-const score = document.getElementById("scoreInput");
+var username = document.getElementById("usernameInput");
+var score = document.getElementById("scoreInput");
 const registerPlayBtn = document.getElementById("registerPlayBtn");
 
 // registerPlayBtn.addEventListener("click", (e) => {
 //     // preventDefault() disables the default behaviour of clicking a type="submit" button, which is to refresh
 //     // the page which we don't want
 //     e.preventDefault();
-//     db.collection("pointsLeaderboard").doc().set({
-//         username: username.value,
-//         score: score.value
-//     // after the data has been sent to firebase, run toGameBtn()
-//     }).then(() => {
-//         toGameBtn()
-//     })
+//     if (username.value && score.value) {
+//         db.collection("pointsLeaderboard").doc().set({
+//             username: username.value,
+//             score: score.value
+//         // after the data has been sent to firebase, run toGameBtn()
+//         }).then(() => {
+//                 toGameBtn();
+//         })
+//     } else {
+//         alert("Please enter a username and score!")
+//     }
 // });

@@ -254,6 +254,7 @@
     margin-right: 18.9%;
 }
 
+/* MmmMmmMmmmmm... chips... */
 .chipsBag {
     position: absolute;
 }
@@ -310,6 +311,13 @@
     background-size: cover;
 }
 
+.optionsHeader {
+    position: absolute;
+    color: #fff;
+    font-size: xx-large;
+    margin-bottom: 40%;
+}
+
 .optSectionButtons {
     display: flex;
     flex-direction: column;
@@ -339,7 +347,6 @@
     border-radius: 50%;
 }
 
-/* For Firefox */
 .slider::-moz-range-thumb {
     width: 16px;
     height: 16px;
@@ -348,7 +355,6 @@
     border-radius: 50%;
 }
 
-/* Optional: Remove track styles for a cleaner look */
 .slider::-moz-range-track,
 .slider::-webkit-slider-runnable-track {
     background: white;
@@ -377,9 +383,10 @@
     width: 60%;
     min-height: fit-content;
     min-width: 758px;
+    min-height: 600px;
 }
 
-.Header {
+.pointsLdrBrdHeader {
     margin-top: 70px;
 }
 
