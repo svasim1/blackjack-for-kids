@@ -42,19 +42,49 @@ function toContact() {
     contactTitle.style.display = "block";
 }
 
-back = () => {
-    backToMenu();
-}
-
-function MeToo() {
-    alert("Yay!");
+function back() {
+    var menu = document.getElementById("menuSection");
+    var game = document.getElementById("gameSection");
+    var gameTitle = document.getElementById("gameTitle");
+    var options = document.getElementById("optSection");
+    var ldrBrd = document.getElementById("leaderboard");
+    var rules = document.getElementById("rulesSection");
+    var rulesTitle = document.getElementById("rulesTitle");
+    var contact = document.getElementById("contactSection")
+    var contactTitle = document.getElementById("contactTitle")
+    var register = document.getElementById("registerSection");
+    menu.style.display = "flex";
+    game.style.display = "none";
+    gameTitle.style.display = "block";
+    options.style.display = "none";
+    ldrBrd.style.display = "none";
+    rules.style.display = "none";
+    rulesTitle.style.display = "none";
+    contact.style.display = "none";
+    contactTitle.style.display = "none";
+    register.style.display = "none";
 }
 
 function playBtn() {
     var menu = document.getElementById("menuSection");
-    var game = document.getElementById("gameSection");
+    var register = document.getElementById("registerSection");
     menu.style.display = "none";
+    register.style.display = "flex";
+}
+
+function toGameBtn() {
+    var register = document.getElementById("registerSection");
+    var game = document.getElementById("gameSection");
+    register.style.display = "none";
     game.style.display = "flex";
+}
+
+function standFunction() {
+    alert("You lost!")
+}
+
+function hitFunction() {
+    alert("You win!")
 }
 
 function optBtn() {
@@ -93,6 +123,7 @@ function backToMenu() {
     var rulesTitle = document.getElementById("rulesTitle");
     var contact = document.getElementById("contactSection")
     var contactTitle = document.getElementById("contactTitle")
+    var register = document.getElementById("registerSection");
     menu.style.display = "flex";
     game.style.display = "none";
     gameTitle.style.display = "block";
@@ -102,13 +133,35 @@ function backToMenu() {
     rulesTitle.style.display = "none";
     contact.style.display = "none";
     contactTitle.style.display = "none";
+    register.style.display = "none";
 }
 
 window.onkeydown = keyPressed;
-
-// if esc is pressed, run backToMenu(), which basically is the reverse of playBtn()
+// if esc is pressed, run backToMenu()
 function keyPressed(event) {
     if (event.keyCode == 27) {
         backToMenu();
     }
 }
+
+// turn off chrome's shitty password suggestions in the username input field
+var inputElement = document.getElementById("usernameInput");
+inputElement.setAttribute("autocomplete", "off");
+
+// send the username and score to firebase when clicking registerPlayBtn
+const username = document.getElementById("usernameInput");
+const score = document.getElementById("scoreInput");
+const registerPlayBtn = document.getElementById("registerPlayBtn");
+
+// registerPlayBtn.addEventListener("click", (e) => {
+//     // preventDefault() disables the default behaviour of clicking a type="submit" button, which is to refresh
+//     // the page which we don't want
+//     e.preventDefault();
+//     db.collection("pointsLeaderboard").doc().set({
+//         username: username.value,
+//         score: score.value
+//     // after the data has been sent to firebase, run toGameBtn()
+//     }).then(() => {
+//         toGameBtn()
+//     })
+// });

@@ -92,6 +92,63 @@
     cursor: pointer;
 }
 
+.registerSection {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    border-style: solid;
+    border-color: #fff;
+    width: 60%;
+    height: 600px;
+    min-height: 600px;
+    min-width: 758px;
+    background-image: url("../Images/Blue_background.png");
+    background-size: cover;
+}
+
+.usernameInputDiv {
+    height: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #fff;
+}
+
+.usernameInput {
+    padding: 12px 20px;
+    width: 400px;
+    border-radius: 22px;
+}
+
+.scoreInput {
+    padding: 12px 20px;
+    width: 400px;
+    border-radius: 22px;
+}
+
+.registerPlayBtnDiv {
+    height: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.registerPlayBtn {
+    height: 100px;
+    width: 400px;
+    border-radius: 22px;
+    margin-bottom: 100px;
+}
+
+.registerPlayBtn:hover {
+    cursor: pointer;
+}
+
 .gameSection {
     display: none;
     flex-direction: column;
@@ -119,25 +176,42 @@
 
 /* The player's hand is on the left */
 .gameSection .ownHandDiv {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     z-index: 2;
     margin-left: 16%;
     width: 115px;
 }
 
+/* handSum hahaha! get it? it sounds like handsome!!! 😂😂😂😂 */
+.handSum {
+    color: white;
+    font-size: xx-large;
+}
+
 .gameSection .ownHand {
-    height: 170px;
+    height: 175px;
     width: 115px;
 }
 
 /* Dealer's hand is on the right */
 .gameSection .dealerHandDiv { 
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     z-index: 2;
     margin-right: 15%;
     width: 115px;
 }
 
+.dealerSum {
+    color: white;
+    font-size: xx-large;
+}
+
 .gameSection .dealerHand {
-    height: 170px;
+    height: 175px;
     width: 115px;
 }
 
@@ -218,22 +292,6 @@
     margin-top: 90px;
     color: #fff;
     font-size: x-large;
-}
-
-.handSum {
-    position: absolute;
-    color: white;
-    font-size: xx-large;
-    margin-left: 165px;
-    margin-bottom: 180px;
-}
-
-.dealerSum {
-    position: absolute;
-    color: white;
-    font-size: xx-large;
-    margin-left: 573px;
-    margin-bottom: 180px;
 }
 
 .optSection {
