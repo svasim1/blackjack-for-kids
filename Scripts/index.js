@@ -149,23 +149,72 @@ var inputElement = document.getElementById("usernameInput");
 inputElement.setAttribute("autocomplete", "off");
 
 // send the username and score to firebase when clicking registerPlayBtn
-var username = document.getElementById("usernameInput");
+const username = document.getElementById("usernameInput");
 var score = document.getElementById("scoreInput");
+var timeTaken = document.getElementById("timeInput");
 const registerPlayBtn = document.getElementById("registerPlayBtn");
+const muskPlayBtn = document.getElementById("muskPlayBtn");
+const bezosPlayBtn = document.getElementById("bezosPlayBtn");
+const zuckerPlayBtn = document.getElementById("zuckerPlayBtn");
 
-// registerPlayBtn.addEventListener("click", (e) => {
-//     // preventDefault() disables the default behaviour of clicking a type="submit" button, which is to refresh
-//     // the page which we don't want
-//     e.preventDefault();
-//     if (username.value && score.value) {
-//         db.collection("pointsLeaderboard").doc().set({
-//             username: username.value,
-//             score: score.value
-//         // after the data has been sent to firebase, run toGameBtn()
-//         }).then(() => {
-//                 toGameBtn();
-//         })
-//     } else {
-//         alert("Please enter a username and score!")
-//     }
-// });
+registerPlayBtn.addEventListener("click", (e) => {
+    // preventDefault() disables the default behaviour of clicking a type="submit" button, which is to refresh
+    // the page which we don't want
+    e.preventDefault();
+    if (username.value && score.value) {
+        db.collection("pointsLeaderboard").doc().set({
+            username: username.value,
+            score: score.value
+        // after the data has been sent to firebase, run toGameBtn()
+        }).then(() => {
+                toGameBtn();
+        })
+    } else {
+        alert("Please enter a username and score!");
+    }
+});
+
+muskPlayBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (username.value && score.value) {
+        db.collection("muskLeaderboard").doc().set({
+            username: username.value,
+            score: score.value,
+            timeTaken: timeTaken.value
+        }).then(() => {
+                toGameBtn();
+        })
+    } else {
+        alert("Please enter a username, time and score!");
+    }
+});
+
+bezosPlayBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (username.value && score.value) {
+        db.collection("bezosLeaderboard").doc().set({
+            username: username.value,
+            score: score.value,
+            timeTaken: timeTaken.value
+        }).then(() => {
+                toGameBtn();
+        })
+    } else {
+        alert("Please enter a username, time and score!");
+    }
+});
+
+zuckerPlayBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (username.value && score.value && timeTaken.value) {
+        db.collection("zuckerLeaderboard").doc().set({
+            username: username.value,
+            score: score.value,
+            timeTaken: timeTaken.value
+        }).then(() => {
+                toGameBtn();
+        })
+    } else {
+        alert("Please enter a username, time and score!");
+    }
+});

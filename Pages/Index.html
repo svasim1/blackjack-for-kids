@@ -57,6 +57,7 @@
         <!-- register section -->
         <section class="registerSection" id="registerSection">
             <div class="usernameInputDiv">
+                <!-- the inputs below are purely for testing functionality and will be removed later -->
                 <label for="usernameInput">Username:</label>
                 <input
                     type="text"
@@ -76,15 +77,45 @@
                     maxlength="12"
                     required
                 >
+                <!-- currently missing an input for timeTaken, but i'm too lazy to add it for now -->
             </div>
 
-            <div class="registerPlayBtnDiv">
-                <button
-                    type="submit"
-                    class="registerPlayBtn"
-                    id="registerPlayBtn"
-                    onclick="toGameBtn()"
-                >Start the game!</button>
+            <div class="playButtonsDiv">
+                <div class="registerPlayBtnDiv">
+                    <button
+                        type="submit"
+                        class="registerPlayBtn"
+                        id="registerPlayBtn"
+                        onclick="toGameBtn()"
+                    >Start the game!</button>
+                </div>
+
+                <div class="muskPlayBtnDiv">
+                    <button
+                        type="submit"
+                        class="muskPlayBtn"
+                        id="muskPlayBtn"
+                        onclick="toGameBtn()"
+                    >Beat Elon Musk!</button>
+                </div>
+
+                <div class="bezosPlayBtnDiv">
+                    <button
+                        type="submit"
+                        class="bezosPlayBtn"
+                        id="bezosPlayBtn"
+                        onclick="toGameBtn()"
+                    >Beat Jeff Bezos!</button>
+                </div>
+
+                <div class="zuckerPlayBtnDiv">
+                    <button
+                        type="submit"
+                        class="zuckerPlayBtn"
+                        id="zuckerPlayBtn"
+                        onclick="toGameBtn()"
+                    >Beat Mark Zuckerberg!</button>
+                </div>
             </div>
         </section>
 

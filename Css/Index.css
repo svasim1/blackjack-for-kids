@@ -130,9 +130,17 @@
     border-radius: 22px;
 }
 
-.registerPlayBtnDiv {
+.playButtonsDiv {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
     height: 50%;
     width: 100%;
+}
+
+.registerPlayBtnDiv {
+    height: 120px;
+    width: 40%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -146,6 +154,63 @@
 }
 
 .registerPlayBtn:hover {
+    cursor: pointer;
+}
+
+.muskPlayBtnDiv {
+    height: 120px;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.muskPlayBtn {
+    height: 100px;
+    width: 400px;
+    border-radius: 22px;
+    margin-bottom: 100px;
+}
+
+.muskPlayBtn:hover {
+    cursor: pointer;
+}
+
+.bezosPlayBtnDiv {
+    height: 120px;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bezosPlayBtn {
+    height: 100px;
+    width: 400px;
+    border-radius: 22px;
+    margin-bottom: 100px;
+}
+
+.bezosPlayBtn:hover {
+    cursor: pointer;
+}
+
+.zuckerPlayBtnDiv {
+    height: 120px;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.zuckerPlayBtn {
+    height: 100px;
+    width: 400px;
+    border-radius: 22px;
+    margin-bottom: 100px;
+}
+
+.zuckerPlayBtn:hover {
     cursor: pointer;
 }
 
