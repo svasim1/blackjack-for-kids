@@ -10,6 +10,7 @@ function toRules() {
     var rulesTitle = document.getElementById("rulesTitle");
     var contact = document.getElementById("contactSection");
     var contactTitle = document.getElementById("contactTitle");
+    var register = document.getElementById("registerSection");
     menu.style.display = "none";
     game.style.display = "none";
     gameTitle.style.display = "none";
@@ -19,6 +20,7 @@ function toRules() {
     rulesTitle.style.display = "block";
     contact.style.display = "none";
     contactTitle.style.display = "none";
+    register.style.display = "none";
 }
 
 function toContact() {
@@ -31,6 +33,7 @@ function toContact() {
     var rulesTitle = document.getElementById("rulesTitle");
     var contact = document.getElementById("contactSection")
     var contactTitle = document.getElementById("contactTitle")
+    var register = document.getElementById("registerSection");
     menu.style.display = "none";
     game.style.display = "none";
     gameTitle.style.display = "none";
@@ -40,6 +43,7 @@ function toContact() {
     rulesTitle.style.display = "none";
     contact.style.display = "flex";
     contactTitle.style.display = "block";
+    register.style.display = "none";
 }
 
 function back() {
