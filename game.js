@@ -3,6 +3,8 @@ import { Cards } from "./cards.js"
 import { addPlayerCard, setPlayerStand } from "./playerManager.js"
 import { addHouseCard } from "./houseManager.js"
 
+const { Betting } = require('./Betting-system.js')
+const { get_Betting_results } = require('./Betting-system.js')
 
 const hitButton = document.getElementById("hitButton")
 const standButton = document.getElementById("standButton")
@@ -25,6 +27,8 @@ const values = {
   13: "king",
 }
 
+//Player make bett
+Betting()
 
 // Function to initialize the deck - returns a shuffled deck
 function initializeDeck () {
@@ -97,3 +101,6 @@ window.onload = function () {
   hit(true, true)
   hit(false, true)
 }
+
+//final score after win/loss/bust
+get_Betting_results()

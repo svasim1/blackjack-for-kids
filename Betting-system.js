@@ -79,51 +79,53 @@ function Betting () {
     }
 }
 
-function result_after_betting () {
-    // get result + change to score//
+// get result + change to score//
+
+function get_Betting_results () {
     const results = require('./getResult.js')
 
-    function get_results () {
-        if (results == "You win!") {
-            alert("you have won dubble your bet")
-            Total_playerScore = Total_playerScore + (2 * player_score)
-            House_score = 0
-        }
-        else if (results == "You lost!") {
-            alert("you lost your bet")
-            Total_playerScore = Total_playerScore - player_score
-            House_score = House_score + Total_playerScore
-            if (Total_playerScore < 0) {
-                alert("score is negetive number, reset to zero.")
-                Total_playerScore == 0
-            }
-        }
-        else if (results == "You busted!") {
-            alert("you lost your bet")
-            Total_playerScore = Total_playerScore - player_score
-            if (Total_playerScore < 0) {
-                alert("score is negetive number, reset to zero.")
-                Total_playerScore == 0
-            }
-        }
-        else if (results = "House busted! You win!") {
-            alert("you got dealers bet")
-            Total_playerScore = Total_playerScore + House_score
-            House_score = 0
-        }
-
-        else {
-            Total_playerScore = Total_playerScore
-            alert("you did not earn your bet")
-        }
-
+    if (results == "You win!") {
+        alert("you have won dubble your bet")
+        Total_playerScore = Total_playerScore + (2 * player_score)
+        House_score = 0
     }
+    else if (results == "You lost!") {
+        alert("you lost your bet")
+        Total_playerScore = Total_playerScore - player_score
+        House_score = House_score + Total_playerScore
+        if (Total_playerScore < 0) {
+            alert("score is negetive number, reset to zero.")
+            Total_playerScore == 0
+        }
+    }
+    else if (results == "You busted!") {
+        alert("you lost your bet")
+        Total_playerScore = Total_playerScore - player_score
+        if (Total_playerScore < 0) {
+            alert("score is negetive number, reset to zero.")
+            Total_playerScore == 0
+        }
+    }
+    else if (results = "House busted! You win!") {
+        alert("you got dealers bet")
+        Total_playerScore = Total_playerScore + House_score
+        House_score = 0
+    }
+
+    else {
+        Total_playerScore = Total_playerScore
+        alert("you did not earn your bet")
+    }
+
+    score = Total_playerScore
+
 }
 
-//lose/win//
-get_results()
+module.exports = { Betting }
+module.exports = { get_Betting_results }
+
 console.log(Total_playerScore)
 console.log(House_score)
 
-export const score = Total_playerScore
+//export const score = Total_playerScore
 //return ldrBrdBtn={Total_playerScore}; 
