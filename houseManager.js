@@ -4,8 +4,8 @@ import { getResult, displayResult } from "./getResult.js";
 import { getPlayerStand, playerHandTotal } from "./playerManager.js";
 
 // Declare DOM elements
-const houseCardsElement = document.getElementById("house-cards");
-const houseHandTotalElement = document.getElementById("house-hand-total");
+const houseCardsElement = document.getElementById("dealerHandDiv");
+const houseHandTotalElement = document.getElementById("dealerSum");
 
 // Initialize variables
 let houseHand = [];
@@ -47,7 +47,7 @@ function updateUI() {
   houseCardsElement.textContent = "";
   houseHand.forEach((card) => {
     const img = document.createElement("img");
-    img.src = `cards/${card.cardImage}`;
+    img.src = `${card.cardImage}`;
     img.style.width = "50px";
     img.style.height = "auto";
     houseCardsElement.appendChild(img);
