@@ -250,7 +250,7 @@ registerPlayBtn.addEventListener("click", (e) => {
                     db.collection("pointsLeaderboard").doc(`${time}`).set({
                         username: enteredUsername,
                         time: time,
-                        score: score
+                        score: parseInt(score.value)
                     }).then(() => {
                         toGameBtn();
                     }).catch((error) => {
