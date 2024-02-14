@@ -18,6 +18,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
+// won't be using these because javascript sucks and i have less than a week to finish this
 const MuskNetWorth = 245000000000; // 245,000,000,000 (just making it easier to read the numbers with comments)
 const BezosNetWorth = 171400000000; // 171,400,000,000 imagine having so much money it strains your eyes just to look at your bank account...
 const ZuckerNetWorth = 127000000000; // 127,000,000,000
@@ -54,35 +55,35 @@ function displayPointsLeaderboard() {
 }
 
 // function to display speedrun leaderboard (Musk & Co.)
-function displayTimedLeaderboard(leaderboardId, netWorth, collectionName) {
-    const leaderboard = document.getElementById(leaderboardId);
+// function displayTimedLeaderboard(leaderboardId, netWorth, collectionName) {
+//     const leaderboard = document.getElementById(leaderboardId);
 
-    db.collection(collectionName)
-    .orderBy('timeTaken', 'asc')
-    .limit(10)
-    .get()
-    .then(querySnapshot => {
-        querySnapshot.forEach((doc) => {
-            const data = doc.data();
-            const score = data.score
-            const username = data.username
-            const timeTaken = data.timeTaken
-            if (data.score > netWorth) {
-                const listItem = document.createElement('li');
-                if (data.timeTaken == 1) {
-                    listItem.innerHTML = `${username}: 💲${humanRead(score)} in ${timeTaken} minute`;
-                    leaderboard.appendChild(listItem);
-                } else {
-                    listItem.innerHTML = `${username}: 💲${humanRead(score)} in ${timeTaken} minutes`;
-                    leaderboard.appendChild(listItem);
-                }
-            }
-        })
-    })
-}
+//     db.collection(collectionName)
+//     .orderBy('timeTaken', 'asc')
+//     .limit(10)
+//     .get()
+//     .then(querySnapshot => {
+//         querySnapshot.forEach((doc) => {
+//             const data = doc.data();
+//             const score = data.score
+//             const username = data.username
+//             const timeTaken = data.timeTaken
+//             if (data.score > netWorth) {
+//                 const listItem = document.createElement('li');
+//                 if (data.timeTaken == 1) {
+//                     listItem.innerHTML = `${username}: 💲${humanRead(score)} in ${timeTaken} minute`;
+//                     leaderboard.appendChild(listItem);
+//                 } else {
+//                     listItem.innerHTML = `${username}: 💲${humanRead(score)} in ${timeTaken} minutes`;
+//                     leaderboard.appendChild(listItem);
+//                 }
+//             }
+//         })
+//     })
+// }
 
 displayPointsLeaderboard();
 // functionName('leaderboard ID', minimum net worth required, 'collection name in firebase')
-displayTimedLeaderboard('muskLeaderboard', MuskNetWorth, 'muskLeaderboard');
-displayTimedLeaderboard('bezosLeaderboard', BezosNetWorth, 'bezosLeaderboard');
-displayTimedLeaderboard('zuckerLeaderboard', ZuckerNetWorth, 'zuckerLeaderboard');
+// displayTimedLeaderboard('muskLeaderboard', MuskNetWorth, 'muskLeaderboard');
+// displayTimedLeaderboard('bezosLeaderboard', BezosNetWorth, 'bezosLeaderboard');
+// displayTimedLeaderboard('zuckerLeaderboard', ZuckerNetWorth, 'zuckerLeaderboard');

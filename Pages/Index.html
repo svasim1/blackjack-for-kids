@@ -1,4 +1,6 @@
 <!-- Här jobbar Ted Strömne med HTML koden för hemsidan -->
+<!-- Om du undrar varför så många saker är kommenterade ut så är det för att vi tog bort speedrun leaderboards -->
+<!-- Jag ville inte permanent ta bort alla rader kod ifall vi ville implementera det senare -->
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -39,7 +41,7 @@
         </header>
 
         <h1 class="gameTitle" id="gameTitle">Blackjack</h1>
-        <button class="backArrowButton" onclick="back()">
+        <button class="backArrowButton" onclick="backToMenu()">
             <i class="fa-solid fa-arrow-left fa-xl" id="backArrow"></i>
         </button>
 
@@ -77,7 +79,6 @@
                     maxlength="12"
                     required
                 >
-                <!-- currently missing an input for timeTaken, but i'm too lazy to add it for now 😴 -->
             </div>
 
             <div class="playButtonsDiv">
@@ -90,7 +91,7 @@
                     >Start the game!</button>
                 </div>
 
-                <div class="muskPlayBtnDiv">
+                <!-- <div class="muskPlayBtnDiv">
                     <button
                         type="submit"
                         class="muskPlayBtn"
@@ -115,7 +116,7 @@
                         id="zuckerPlayBtn"
                         onclick="toGameBtn()"
                     >Beat Mark Zuckerberg!</button>
-                </div>
+                </div> -->
             </div>
         </section>
 
@@ -159,6 +160,20 @@
                 <div class="moneyCount" id="moneyCount">
                     <!-- display the money the player currently has here! -->
                 </div>
+                <!-- <div class="timer">
+                    <label id="minutes">00</label>:<label id="seconds">00</label>
+                </div> -->
+            </div>
+            <div class="blackBackground" id="blackBackground"></div>
+            <div class="backConfirmation" id="backConfirmation">
+                <div class="confirmText" id="confirmText">
+                    <h3>Are you sure you wish to leave the game?</h3>
+                    <h4>(Your progress will be lost!)</h4>
+                </div>
+                <div class="confirmBtns" id="confirmBtns">
+                    <button onclick="fromGameToMenu()">Yes!</button>
+                    <button onclick="backToGame()">No!</button>
+                </div>
             </div>
         </section>
 
@@ -191,12 +206,12 @@
         <section class="leaderboard" id="leaderboard" style="display: none;">
             <h2 class="pointsLdrBrdHeader">Most Money Achieved 🤑</h2>
             <ol id="pointsLeaderboard"></ol>
-            <h2>Fastest Person to Earn More Than Elon Musk 💸</h2>
+            <!-- <h2>Fastest Person to Earn More Than Elon Musk 💸</h2>
             <ol id="muskLeaderboard"></ol>
             <h2>Fastest Person to Earn More Than Jeff Bezos 💸</h2>
             <ol id="bezosLeaderboard"></ol>
             <h2>Fastest Person to Earn More Than Mark Zuckerberg 💸</h2>
-            <ol id="zuckerLeaderboard"></ol>
+            <ol id="zuckerLeaderboard"></ol> -->
         </section>
 
         <!-- rules section -->
