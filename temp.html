@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="game.js" type="module"></script>
+    <title>TEMP</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-image: url("cards/Bord.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      #table,
+      #houseHand,
+      #hand {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .button {
+        padding: 10px 20px;
+        font-size: 20px;
+        margin: 10px;
+      }
+      #hand-total,
+      #house-total {
+        text-align: center;
+      }
+      #result {
+        opacity: 0;
+        font-size: 0;
+        transition: opacity 2s, font-size 2s;
+      }
+
+      #result.show {
+        opacity: 1;
+        font-size: 2em;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="houseHand">
+      <div id="house-cards"></div>
+      <div id="house-total"></div>
+    </div>
+    <div id="table">
+      <button id="hitButton" class="button">Hit</button>
+      <button id="standButton" class="button">Stand</button>
+      <div id="result"></div>
+    </div>
+    <div id="hand">
+      <div id="hand-cards"></div>
+      <div id="hand-total"></div>
+    </div>
+  </body>
+</html>
