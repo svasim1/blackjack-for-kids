@@ -38,7 +38,7 @@ function displayPointsLeaderboard() {
     const pointsLeaderboard = document.getElementById('pointsLeaderboard');
 
     db.collection('pointsLeaderboard')
-    .orderBy('score', 'asc')
+    .orderBy('score', 'desc')
     .limit(10)
     .get()
     .then(querySnapshot => {
