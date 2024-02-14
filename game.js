@@ -64,7 +64,7 @@ function generateCardDetails(dealtCard, isShown) {
     value: deck.getCardValue(dealtCard),
     suit: deck.getCardSuit(dealtCard),
     cardImage: isShown
-      ? `${values[dealtCard.id]}_of_${dealtCard.suit}.png`
+      ? `../Images/${values[dealtCard.id]}_of_${dealtCard.suit}.png`
       : "card_back.png",
   };
 }
