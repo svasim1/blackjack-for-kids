@@ -237,18 +237,32 @@ registerPlayBtn.addEventListener("click", (e) => {
     // preventDefault() disables the default behaviour of clicking a type="submit" button, which is to refresh
     // the page which we don't want
     e.preventDefault();
+    const enteredUsername = username.value.trim();
     if (username.value && score.value) {
-        var time = Date.now()
-        db.collection("pointsLeaderboard").doc(`${time}`).set({
-            username: username.value,
-            time: time.valueOf(),
-            score: parseInt(score.value)
-        // after the data has been sent to firebase, run toGameBtn()
-        }).then(() => {
-            toGameBtn();
-        })
+        db.collection("pointsLeaderboard")
+            .where("username", "==", enteredUsername)
+            .get()
+            .then((querySnapshot) => {
+                if (querySnapshot.size > 0) {
+                    alert("Username already exists. Please choose a different username.");
+                } else {
+                    const time = Date.now();
+                    db.collection("pointsLeaderboard").doc(`${time}`).set({
+                        username: enteredUsername,
+                        time: time,
+                        score: score
+                    }).then(() => {
+                        toGameBtn();
+                    }).catch((error) => {
+                        console.error("Error adding document: ", error);
+                    });
+                }
+            })
+            .catch((error) => {
+                console.error("Error getting documents: ", error);
+            });
     } else {
-        alert("Please enter a username and score!");
+        alert("Please enter a valid username and score.");
     }
 });
 

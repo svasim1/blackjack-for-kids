@@ -43,14 +43,20 @@ function displayPointsLeaderboard() {
     .limit(10)
     .get()
     .then(querySnapshot => {
+        const existingUsernames = new Set();
+
         querySnapshot.forEach(doc => {
             const data = doc.data();
             const username = data.username;
-            const score = data.score;
 
-            const listItem = document.createElement('li');
-            listItem.innerHTML = `${username}: 💲${humanRead(score)}`;
-            pointsLeaderboard.appendChild(listItem);
+            if (!existingUsernames.has(username)) {
+                existingUsernames.add(username);
+                const score = data.score;
+
+                const listItem = document.createElement('li');
+                listItem.innerHTML = `${username}: 💲${humanRead(score)}`;
+                pointsLeaderboard.appendChild(listItem);
+            } 
         });
     });
 }
