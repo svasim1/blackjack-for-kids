@@ -1,0 +1,599 @@
+/* Ted Strömne jobbar fortfarande med CSS:n, även för index page 🤯 */
+
+.gameTitle {
+    color: white;
+    font-weight: bold;
+}
+
+.backArrowButton {
+    position: absolute;
+    margin-top: 160px;
+    margin-right: 690px;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px;
+    border: 0px;
+    border-radius: 50%;
+    z-index: 3;
+}
+
+.backArrowButton:hover {
+    cursor: pointer;
+}
+
+#backArrow {
+    margin-top: 30px;
+    position: absolute;
+    height: 30px;
+    width: 30px;
+}
+
+.menuSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    border-style: solid;
+    border-color: #fff;
+    width: 60%;
+    height: 600px;
+    min-height: 600px;
+    min-width: 758px;
+    position: relative;
+    background-image: url("../Images/Blue_background.png");
+    background-size: cover;
+}
+
+.menuBtnsDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 400px;
+}
+
+.menuPlayBtn {
+    height: 100px;
+    width: 400px;
+    background-image: url("../Images/Play_Final.png");
+    background-size: cover;
+    border-radius: 22px;
+}
+
+.menuPlayBtn:hover {
+    cursor: pointer;
+}
+
+.menuOptBtn {
+    height: 100px;
+    width: 400px;
+    background-image: url("../Images/Options_Final.png");
+    background-size: cover;
+    border-radius: 22px;
+}
+
+.menuOptBtn:hover {
+    cursor: pointer;
+}
+
+.menuLdrBrdBtn {
+    height: 100px;
+    width: 400px;
+    background-image: url("../Images/Leaderboard_Final.png");
+    background-size: cover;
+    border-radius: 22px;
+}
+
+.menuLdrBrdBtn:hover {
+    cursor: pointer;
+}
+
+.registerSection {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    border-style: solid;
+    border-color: #fff;
+    width: 60%;
+    height: 600px;
+    min-height: 600px;
+    min-width: 758px;
+    background-image: url("../Images/Blue_background.png");
+    background-size: cover;
+}
+
+.usernameInputDiv {
+    height: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #fff;
+}
+
+.usernameInput {
+    padding: 12px 20px;
+    width: 400px;
+    border-radius: 22px;
+}
+
+.scoreInput {
+    padding: 12px 20px;
+    width: 400px;
+    border-radius: 22px;
+}
+
+.playButtonsDiv {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    height: 50%;
+    width: 100%;
+}
+
+.registerPlayBtnDiv {
+    height: 120px;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.registerPlayBtn {
+    height: 100px;
+    width: 400px;
+    border-radius: 22px;
+    margin-bottom: 100px;
+}
+
+.registerPlayBtn:hover {
+    cursor: pointer;
+}
+
+.muskPlayBtnDiv {
+    height: 120px;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.muskPlayBtn {
+    height: 100px;
+    width: 400px;
+    border-radius: 22px;
+    margin-bottom: 100px;
+}
+
+.muskPlayBtn:hover {
+    cursor: pointer;
+}
+
+.bezosPlayBtnDiv {
+    height: 120px;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bezosPlayBtn {
+    height: 100px;
+    width: 400px;
+    border-radius: 22px;
+    margin-bottom: 100px;
+}
+
+.bezosPlayBtn:hover {
+    cursor: pointer;
+}
+
+.zuckerPlayBtnDiv {
+    height: 120px;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.zuckerPlayBtn {
+    height: 100px;
+    width: 400px;
+    border-radius: 22px;
+    margin-bottom: 100px;
+}
+
+.zuckerPlayBtn:hover {
+    cursor: pointer;
+}
+
+.gameSection {
+    display: none;
+    flex-direction: column;
+    align-items: end;
+    border-radius: 15px;
+    border-style: solid;
+    border-color: #fff;
+    width: 60%;
+    height: 600px;
+    min-height: 600px;
+    min-width: 758px;
+    position: relative;
+    background-image: url("../Images/Bord2.png");
+    background-size: cover;
+}
+
+.gameSection .handsDiv {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: end;
+    height: 75%;
+}
+
+/* The player's hand is on the left */
+.gameSection .ownHandDiv {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    z-index: 2;
+    margin-left: 16%;
+    width: 115px;
+}
+
+/* handSum hahaha! get it? it sounds like handsome!!! 😂😂😂😂 */
+.handSum {
+    color: white;
+    font-size: xx-large;
+}
+
+.gameSection .ownHand {
+    height: 175px;
+    width: 115px;
+}
+
+/* Dealer's hand is on the right */
+.gameSection .dealerHandDiv { 
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    z-index: 2;
+    margin-right: 15%;
+    width: 115px;
+}
+
+.dealerSum {
+    color: white;
+    font-size: xx-large;
+}
+
+.gameSection .dealerHand {
+    height: 175px;
+    width: 115px;
+}
+
+.btnsDiv {
+    height: 25%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.hitBtn {
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    margin-left: 20.5%;
+    background-image: url("../Images/Hit_Button_2.png");
+    background-position: center;
+    background-size: cover;
+}
+
+.hitBtn:hover {
+    height: 51px;
+    width: 51px;
+    margin-left: 20.4%;
+}
+
+.standBtn {
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    margin-right: 19%;
+    background-image: url("../Images/Stand_Button_2.png");
+    background-position: center;
+    background-size: cover;
+}
+
+.standBtn:hover {
+    height: 51px;
+    width: 51px;
+    margin-right: 18.9%;
+}
+
+/* MmmMmmMmmmmm... chips... */
+.chipsBag {
+    position: absolute;
+}
+
+.tenChipDiv {
+    background-image: url("../Images/10_Chip.png");
+    background-size: cover;
+    position: inherit;
+    width: 80px;
+    height: 80px;
+}
+
+.hundredChipDiv {
+    background-image: url("../Images/100_Chip.png");
+    background-size: cover;
+    position: inherit;
+    width: 80px;
+    height: 80px;
+    margin-top: 50px;
+    margin-left: 30px;
+}
+
+.fivehundredChipDiv {
+    background-image: url("../Images/500_Chip.png");
+    background-size: cover;
+    position: inherit;
+    width: 80px;
+    height: 80px;
+    margin-top: 70px;
+    margin-left: 80px;
+}
+
+.moneyCount {
+    position: absolute;
+    margin-left: 170px;
+    margin-top: 90px;
+    color: #fff;
+    font-size: x-large;
+}
+
+.timer {
+    position: absolute;
+    color: #fff;
+    font-size: xx-large;
+    right: 3%;
+    bottom: 3%;
+}
+
+.backConfirmation {
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    top: 30%;
+    left: 34%;
+    width: 250px;
+    height: 200px;
+    border-radius: 50px;
+    background-color: #fff;
+    z-index: 10;
+}
+
+.confirmText {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+}
+
+.blackBackground {
+    background-color: rgb(0, 0, 0, 0.2);
+    width: 60%;
+    height: 600px;
+    min-height: 600px;
+    min-width: 758px;
+    position: absolute;
+    background-size: cover;
+    border-radius: 15px;
+    display: none;
+}
+
+.loseScreen {
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    align-self: center;
+    justify-content: center;
+    justify-self: center;
+    top: 30%;
+    left: 34%;
+    width: 250px;
+    height: 200px;
+    border-radius: 50px;
+    background-color: #fff;
+}
+
+.loseText {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    width: 230px;
+    height: 180px;
+}
+
+.loseText h4 {
+    display: inline;
+}
+
+.loseBtn {
+    height: 50px;
+}
+
+.optSection {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    border-radius: 15px;
+    border-style: solid;
+    border-color: #fff;
+    width: 60%;
+    height: 600px;
+    min-height: 600px;
+    min-width: 758px;
+    background-image: url("../Images/Blue_background.png");
+    background-size: cover;
+}
+
+.optionsHeader {
+    position: absolute;
+    color: #fff;
+    font-size: xx-large;
+    margin-bottom: 40%;
+}
+
+.optSectionButtons {
+    display: flex;
+    flex-direction: column;
+}
+
+.optSectionSlider {
+    display: flex;
+    flex-direction: row;
+}
+
+.slider {
+    transform: rotate(-90deg);
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 8px;
+    background: white;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    background: black;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.slider::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    background: black;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.slider::-moz-range-track,
+.slider::-webkit-slider-runnable-track {
+    background: white;
+}
+
+.optSection button {
+    height: 50px;
+    width: 100px;
+    border-radius: 22px;
+    margin: 10px;
+}
+
+.leaderboardTitle {
+    color: white;
+    font-weight: bold;
+}
+
+.leaderboard {
+    display: none;
+    color: #fff;
+    background-image: url("../Images/Blue_background.png");
+    background-size: cover;
+    border-radius: 15px;
+    border-style: solid;
+    border-color: #fff;
+    width: 60%;
+    min-height: fit-content;
+    min-width: 758px;
+    min-height: 600px;
+}
+
+.pointsLdrBrdHeader {
+    margin-top: 70px;
+}
+
+.leaderboard h2 {
+    margin-bottom: 20px;
+    margin-left: 70px;
+    margin-right: 20px;
+}
+
+.leaderboard ol {
+    margin-bottom: 20px;
+    margin-left: 70px;
+    margin-right: 20px;
+}
+
+.rulesTitle {
+    display: none;
+    color: white;
+    font-weight: bold;
+}
+
+.rulesSection {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    background-image: url("../Images/Blue_background.png");
+    background-size: cover;
+    border-radius: 15px;
+    border-style: solid;
+    border-color: #fff;
+    width: 60%;
+    height: 100%;
+    min-height: fit-content;
+    min-width: 758px;
+}
+
+.rulesSection h3 {
+    margin: 20px;
+    margin-top: 60px;
+}
+
+.contactTitle {
+    display: none;
+    color: white;
+    font-weight: bold;
+}
+
+.contactSection {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    background-image: url("../Images/Blue_background.png");
+    background-size: cover;
+    border-radius: 15px;
+    border-style: solid;
+    border-color: #fff;
+    width: 60%;
+    height: 600px;
+    min-height: 600px;
+    min-width: 758px;
+}
+
+.contactSection h2 {
+    margin: 20px;
+}
+
+.empty {
+    height: 200px;
+    width: 100%;
+}

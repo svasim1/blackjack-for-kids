@@ -1,0 +1,283 @@
+<!-- Här jobbar Ted Strömne med HTML koden för hemsidan -->
+<!-- Om du undrar varför så många saker är kommenterade ut så är det för att vi tog bort speedrun leaderboards -->
+<!-- Jag ville inte permanent ta bort alla rader kod ifall vi ville implementera det senare -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/all.css">
+        <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-solid.css">
+        <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-regular.css">
+        <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/sharp-light.css">
+        <link rel="stylesheet" href="../Css/Layout.css">
+        <link rel="stylesheet" href="../Css/Index.css">
+        <script src="https://www.gstatic.com/firebasejs/10.3.1/firebase-app-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/10.3.1/firebase-firestore-compat.js"></script>
+        <title>Blackjack for kids!</title>
+    </head>
+    <body>
+        <!-- chrome won't allow me to always consistently autoplay music on the website because of their "policies", -->
+        <!-- so under certain circumstances it won't play automatically. blame google, not me. -->
+        <audio
+            id="bgMusic"
+            autoplay
+            loop
+            src="../Music/y2mate.com - Kids Playing 1 Hour of Instrumental Soothing Music for kids fun Loop 1h Relaxing Music.mp3">
+        </audio>
+
+        <!-- we don't use href since it would reload the page and therefore reload the audio -->
+        <header class="header">
+            <a onclick="backToMenu()" class="logo">
+                <img src="../Images/BlackJacl_logo.png" class="logo-img">
+            </a>
+
+            <nav class="nav-items">
+                <a onclick="backToMenu()">Home</a>
+                <a onclick="toRules()">Rules</a>
+                <a onclick="toContact()">Contact</a>
+            </nav>
+        </header>
+
+        <h1 class="gameTitle" id="gameTitle">Blackjack</h1>
+        <button class="backArrowButton" onclick="backToMenu()">
+            <i class="fa-solid fa-arrow-left fa-xl" id="backArrow"></i>
+        </button>
+
+        <!-- main menu section -->
+        <section class="menuSection" id="menuSection">
+            <div class="menuBtnsDiv" id="menuButtonsDiv">
+                <button class="menuPlayBtn" id="menuPlayBtn" onclick="playBtn()"></button>
+
+                <button class="menuOptBtn" id="menuOptBtn" onclick="optBtn()"></button>
+
+                <button class="menuLdrBrdBtn" id="menuLdrBrdBtn" onclick="ldrBrdBtn()"></button>
+            </div>
+        </section>
+
+        <!-- register section -->
+        <section class="registerSection" id="registerSection">
+            <div class="usernameInputDiv">
+                <!-- the inputs below are purely for testing functionality and will be removed later -->
+                <label for="usernameInput">Username:</label>
+                <input
+                    type="text"
+                    class="usernameInput"
+                    id="usernameInput"
+                    placeholder="Username"
+                    maxlength="12"
+                    required
+                >
+
+                <label for="scoreInput">Score:</label>
+                <input
+                    type="number"
+                    class="scoreInput"
+                    id="scoreInput"
+                    placeholder="Score"
+                    maxlength="12"
+                    required
+                >
+            </div>
+
+            <div class="playButtonsDiv">
+                <div class="registerPlayBtnDiv">
+                    <button
+                        type="submit"
+                        class="registerPlayBtn"
+                        id="registerPlayBtn"
+                    >Start the game!</button>
+                </div>
+
+                <!-- <div class="muskPlayBtnDiv">
+                    <button
+                        type="submit"
+                        class="muskPlayBtn"
+                        id="muskPlayBtn"
+                        onclick="toGameBtn()"
+                    >Beat Elon Musk!</button>
+                </div>
+
+                <div class="bezosPlayBtnDiv">
+                    <button
+                        type="submit"
+                        class="bezosPlayBtn"
+                        id="bezosPlayBtn"
+                        onclick="toGameBtn()"
+                    >Beat Jeff Bezos!</button>
+                </div>
+
+                <div class="zuckerPlayBtnDiv">
+                    <button
+                        type="submit"
+                        class="zuckerPlayBtn"
+                        id="zuckerPlayBtn"
+                        onclick="toGameBtn()"
+                    >Beat Mark Zuckerberg!</button>
+                </div> -->
+            </div>
+        </section>
+
+        <!-- game section -->
+        <section class="gameSection" id="gameSection" style="display: none;">
+            <div class="handsDiv" id="handsDiv">
+                <div class="ownHandDiv" id="ownHandDiv">
+                    <div class="handSum">
+                        0 <!-- display the sum of the player's hand here! -->
+                    </div>
+
+                    <img src="../Images/backsida.png" class="ownHand" id="ownHand">
+                </div>
+                <div class="dealerHandDiv" id="dealerHandDiv">
+                    <div class="dealerSum">
+                        20 <!-- display the sum of the dealer's hand here! -->
+                    </div>
+
+                    <img src="../Images/backsida.png" class="dealerHand" id="dealerHand">
+                </div>
+            </div>
+
+            <div class="btnsDiv" id="btnsDiv">
+                <button class="hitBtn" id="hitBtn" onclick="hitFunction()"></button>
+                <button class="standBtn" id="standBtn" onclick="standFunction()"></button>
+
+                <!-- i'm putting the chips inside the div for buttons because it works better that way -->
+                <div class="chipsBag">
+                    <div class="tenChipDiv" id="tenChipDiv">
+                        <a onclick=""></a>
+                    </div>
+
+                    <div class="hundredChipDiv" id="hundredChipDiv">
+                        <a onclick=""></a>
+                    </div>
+
+                    <div class="fivehundredChipDiv" id="fivehundredChipDiv">
+                        <a onclick=""></a>
+                    </div>
+                </div>
+                <div class="moneyCount" id="moneyCount">
+                    <!-- display the money the player currently has here! -->
+                </div>
+                <!-- <div class="timer">
+                    <label id="minutes">00</label>:<label id="seconds">00</label>
+                </div> -->
+            </div>
+            <div class="blackBackground" id="blackBackground"></div>
+            <div class="backConfirmation" id="backConfirmation">
+                <div class="confirmText" id="confirmText">
+                    <h3>Are you sure you wish to leave the game?</h3>
+                    <h4>(Your progress will be lost!)</h4>
+                </div>
+                <div class="confirmBtns" id="confirmBtns">
+                    <button onclick="fromGameToMenu()">Yes!</button>
+                    <button onclick="backToGame()">No!</button>
+                </div>
+            </div>
+            <div class="loseScreen" id="loseScreen">
+                <div class="loseText" id="loseText">
+                    <h3>Oh no! You've gone bankrupt!</h3>
+                    <div id="scoreDisplay">
+                        <h4>(Your score was: </h4>
+                    </div>
+                </div>
+                <div class="loseBtn" id="loseBtn">
+                    <button onclick="fromGameToMenu()">Back to menu!</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- options section -->
+        <section class="optSection" id="optSection">
+            <div class="optionsHeader">
+                Music Controls:
+            </div>
+            <div class="optSectionButtons">
+                <button onclick="playAudio()">Play</button>
+                <button onclick="stopAudio()">Pause</button>
+            </div>
+
+            <div class="optSectionSlider">
+                <div class="slidecontainer">
+                    <input
+                        type="range"
+                        min="0.0"
+                        step="0.1"
+                        max="1.0"
+                        value="1"
+                        class="slider"
+                        id="volumeSlide"
+                    >
+                </div>
+            </div>
+        </section>
+
+        <!-- leaderboard section -->
+        <section class="leaderboard" id="leaderboard" style="display: none;">
+            <h2 class="pointsLdrBrdHeader">Most Money Achieved 🤑</h2>
+            <ol id="pointsLeaderboard"></ol>
+            <!-- <h2>Fastest Person to Earn More Than Elon Musk 💸</h2>
+            <ol id="muskLeaderboard"></ol>
+            <h2>Fastest Person to Earn More Than Jeff Bezos 💸</h2>
+            <ol id="bezosLeaderboard"></ol>
+            <h2>Fastest Person to Earn More Than Mark Zuckerberg 💸</h2>
+            <ol id="zuckerLeaderboard"></ol> -->
+        </section>
+
+        <!-- rules section -->
+        <h1 class="rulesTitle" id="rulesTitle">Rules</h1>
+        <section class="rulesSection" id="rulesSection">
+            <h3>Welcome to Blackjack for Kids! Blackjack, also known to some as twenty-one, is one of the most popular casino games around - and also super simple to learn! This easy to use, simple Blackjack game will certainly become your new favorite on the web!
+                <br>
+                <br>
+                Blackjack is a card game that pits player versus dealer. It is played with one or more decks of cards. Cards are counted as their respective numbers, face cards as ten, and ace as either eleven or one (in our game it will show on the counter as an 11 unless you are over 21). The object of Blackjack is the beat the dealer. This can be accomplished by getting Blackjack (first two cards equal 21) without dealer Blackjack, having your final card count be higher than the dealers without exceeding 21, or by not exceeding 21 and dealer busting by exceeding their card count of 21.
+                <br>
+                <br>
+                In Blackjack, or 21, the player must decide what to bet before the hand. Click the chips to add them to your bet. Click the chip again to remove it back to your pile of money. Once you click "deal" your bet is set, and two cards are dealt to the player face up and two cards are dealt to the dealer, one face up and one face down. You must then decide if you will "hit" (take another card from the deck), "stay" (keep the hand you are dealt), or "double" (you double your bet and are given only one more card). If the dealer has an Ace showing, you can click the "Insurance" button (this means you will place a bet worth half your hand bet, which will be paid out if the dealer has Blackjack but will be taken if the dealer does not).
+                <br>
+                <br>
+                Once the Blackjack hand is played out, three outcomes can occur. First you can win (as previously described), secondly you can lose (bust hand or have less than dealer hand), or you can push (have same hand - number count or Blackjack - as dealer). If you win, you get your bet money back PLUS that same amount from the dealer, YAY! If you win with Blackjack, you get your original bet back PLUS you win 1.5 times your bet from the dealer, WOOHOO! If you lose, the dealer takes your bet money. If you push, you keep your bet money but do not win anything additional.
+                <br>
+                <br>
+                If you want advice while you are playing, click the Advice button (speech bubble) in the bottom right corner. This will tell you what move will be most statistically likely to win the hand you are holding in blackjack. It will not always win, but it is the best statistical chance you have, so give it a chance if you are stumped!
+                <br>
+                <br>
+                Keep playing Blackjack for Kids until your money is all gone - then restart! No need to wait additional time for more chips! If you are on a streak and need to leave your computer, no worries! Your fabulous money pile will be kept until you return! Just be sure to Resume your game when asked! As you win money watch your chips grow in denominations! Your highest money count will always be kept as your high record too, just so you always have something to strive for!
+                <br>
+                <br>
+                One of the best things about Blackjack for Kids is all the options it comes with! When you are on the home screen (or in the game, push the Menu button - three lines with three dots - in the bottom right to get to home screen - don't worry, you can resume!), click the middle Options button which looks like a wrench. Here you can select the number of decks you'd like to use, whether to auto bet your previous bet, whether a dealer hits on a soft 17 (soft seventeen is where an ace is used as eleven in the dealer's hand), whether you want the insurance option during the game, and whether you'd like auto advice (which turns the game advice on for every hand).
+                <br>
+                <br>
+                And heads up card readers! Just like in the casinos, the cards will automatically shuffle when you get down to half left, so it'll be a bit harder to read what will be coming out next.
+                <br>
+                <br>
+                We know you're going to LOVE Blackjack for Kids so just give it a go! Have a great time using your skills and a little good luck to enjoy the best Blackjack game around!
+                <br>
+                <br>
+            </h3>
+        </section>
+
+        <!-- contact section -->
+        <h1 class="contactTitle" id="contactTitle">Contact Us</h1>
+        <section class="contactSection" id="contactSection">
+            <h2>1-800-BLACKJACKIDS</h2>
+        </section>
+
+        <div class="empty">
+            <!-- this could be a section with some filler text to fill out the page -->
+        </div>
+
+        <footer class="footer">
+            <div class="copyright">&copy; 2024 Blackjack for Kids</div>
+            <div class="bottom-links">
+                <div class="links">
+                    <a onclick="backToMenu()">Home</a>
+                    <a onclick="toRules()">Rules</a>
+                    <a onclick="toContact()">Contact</a>
+                </div>
+            </div>
+        </footer>
+        <script src="../Scripts/firebaseManager.js"></script>
+        <script src="../Scripts/index.js"></script>
+    </body>
+</html>
