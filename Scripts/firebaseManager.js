@@ -36,6 +36,7 @@ let humanRead = (num,intSep = ',',floatSep = '.') => {
 // function to display 'most money earned' leaderboard
 function displayPointsLeaderboard() {
     const pointsLeaderboard = document.getElementById('pointsLeaderboard');
+    pointsLeaderboard.innerHTML = ''
 
     db.collection('pointsLeaderboard')
     .orderBy('score', 'desc')
@@ -44,14 +45,14 @@ function displayPointsLeaderboard() {
     .then(querySnapshot => {
         querySnapshot.forEach(doc => {
             const data = doc.data();
-            const score = data.score
-            const username = data.username
+            const username = data.username;
+            const score = data.score;
 
             const listItem = document.createElement('li');
-                listItem.innerHTML = `${username}: 💲${humanRead(score)}`
+            listItem.innerHTML = `${username}: 💲${humanRead(score)}`;
             pointsLeaderboard.appendChild(listItem);
-        })
-    })
+        });
+    });
 }
 
 // function displayPoints() {

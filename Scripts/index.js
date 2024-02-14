@@ -241,8 +241,8 @@ registerPlayBtn.addEventListener("click", (e) => {
         var time = Date.now()
         db.collection("pointsLeaderboard").doc(`${time}`).set({
             username: username.value,
-            score: score.value,
-            time: time.valueOf()
+            time: time.valueOf(),
+            score: parseInt(score.value)
         // after the data has been sent to firebase, run toGameBtn()
         }).then(() => {
             toGameBtn();
