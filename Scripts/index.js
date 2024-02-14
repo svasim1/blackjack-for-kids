@@ -182,6 +182,26 @@ function lose() {
     lose.style.display = "flex";
 }
 
+function fromLoseToMenu() {
+    if (username.value) {
+        if (score.value) {
+            var time = Date.now()
+            db.collection("pointsLeaderboard").doc(`${time}`).set({
+                username: username.value,
+                score: score.value,
+                time: time.valueOf()
+            // after the data has been sent to firebase, run fromGameToMenu()
+            }).then(() => {
+                fromGameToMenu();
+            })
+        } else {
+            alert("score.value was not valid? How did you achieve an invalid score???")
+        }
+    } else {
+        alert("username.value was not valid? How did you get here?");
+    }
+}
+
 function backToGame() {
     var confirm = document.getElementById("backConfirmation");
     var background = document.getElementById("blackBackground");
@@ -231,6 +251,18 @@ registerPlayBtn.addEventListener("click", (e) => {
         alert("Please enter a username and score!");
     }
 });
+
+// we'll be using this in the final version
+// registerPlayBtn.addEventListener("click", (e) => {
+//     // preventDefault() disables the default behaviour of clicking a type="submit" button, which is to refresh
+//     // the page which we don't want
+//     e.preventDefault();
+//     if (username.value) {
+//         toGameBtn();
+//     } else {
+//         alert("Please enter a valid username!");
+//     }
+// });
 
 function displayScore() {
     const scoreDisplay = document.getElementById('scoreDisplay');
