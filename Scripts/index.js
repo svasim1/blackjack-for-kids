@@ -77,7 +77,7 @@ function toGameBtn() {
     register.style.display = "none";
     game.style.display = "flex";
     // set the timer to 0 when pressing the button to start the game, since the timer starts counting on page load
-    totalSeconds = 0;
+    // totalSeconds = 0;
 }
 
 function standFunction() {
@@ -125,6 +125,7 @@ function backToMenu() {
     var contact = document.getElementById("contactSection");
     var contactTitle = document.getElementById("contactTitle");
     var register = document.getElementById("registerSection");
+    var lose = document.getElementById("loseScreen");
     if (game.style.display == "flex") {
         var confirm = document.getElementById("backConfirmation");
         var background = document.getElementById("blackBackground");
@@ -141,6 +142,7 @@ function backToMenu() {
         contact.style.display = "none";
         contactTitle.style.display = "none";
         register.style.display = "none";
+        lose.style.display = "none";
     }
 }
 
@@ -157,6 +159,7 @@ function fromGameToMenu() {
     var register = document.getElementById("registerSection");
     var confirm = document.getElementById("backConfirmation");
     var background = document.getElementById("blackBackground");
+    var lose = document.getElementById("loseScreen");
     game.style.display = "none";
     menu.style.display = "flex";
     gameTitle.style.display = "block";
@@ -169,6 +172,14 @@ function fromGameToMenu() {
     register.style.display = "none";
     confirm.style.display = "none";
     background.style.display = "none";
+    lose.style.display = "none";
+}
+
+function lose() {
+    var background = document.getElementById("blackBackground");
+    var lose = document.getElementById("loseScreen");
+    background.style.display = "flex";
+    lose.style.display = "flex";
 }
 
 function backToGame() {
@@ -207,9 +218,11 @@ registerPlayBtn.addEventListener("click", (e) => {
     // the page which we don't want
     e.preventDefault();
     if (username.value && score.value) {
-        db.collection("pointsLeaderboard").doc().set({
+        var time = Date.now()
+        db.collection("pointsLeaderboard").doc(`${time}`).set({
             username: username.value,
-            score: score.value
+            score: score.value,
+            time: time.valueOf()
         // after the data has been sent to firebase, run toGameBtn()
         }).then(() => {
             toGameBtn();
@@ -218,6 +231,13 @@ registerPlayBtn.addEventListener("click", (e) => {
         alert("Please enter a username and score!");
     }
 });
+
+function displayScore() {
+    const scoreDisplay = document.getElementById('scoreDisplay');
+    const h4 = document.createElement('h4');
+    h4.innerHTML = `${humanRead(score)})`
+    scoreDisplay.appendChild(h4);
+}
 
 // muskPlayBtn.addEventListener("click", (e) => {
 //     e.preventDefault();

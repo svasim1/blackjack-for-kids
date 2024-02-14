@@ -87,7 +87,6 @@
                         type="submit"
                         class="registerPlayBtn"
                         id="registerPlayBtn"
-                        onclick="toGameBtn()"
                     >Start the game!</button>
                 </div>
 
@@ -173,6 +172,17 @@
                 <div class="confirmBtns" id="confirmBtns">
                     <button onclick="fromGameToMenu()">Yes!</button>
                     <button onclick="backToGame()">No!</button>
+                </div>
+            </div>
+            <div class="loseScreen" id="loseScreen">
+                <div class="loseText" id="loseText">
+                    <h3>Oh no! You've gone bankrupt!</h3>
+                    <div id="scoreDisplay">
+                        <h4>(Your score was: </h4>
+                    </div>
+                </div>
+                <div class="loseBtn" id="loseBtn">
+                    <button onclick="fromGameToMenu()">Back to menu!</button>
                 </div>
             </div>
         </section>

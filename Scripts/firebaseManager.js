@@ -38,7 +38,7 @@ function displayPointsLeaderboard() {
     const pointsLeaderboard = document.getElementById('pointsLeaderboard');
 
     db.collection('pointsLeaderboard')
-    .orderBy('score', 'desc')
+    .orderBy('score', 'asc')
     .limit(10)
     .get()
     .then(querySnapshot => {
@@ -53,6 +53,25 @@ function displayPointsLeaderboard() {
         })
     })
 }
+
+// function displayPoints() {
+//     const scoreDisplay = document.getElementById('scoreDisplay');
+
+//     db.collection('pointsLeaderboard')
+//     .orderBy('time', 'desc')
+//     .limit(1)
+//     .get()
+//     .then(querySnapshot => {
+//         querySnapshot.forEach(doc => {
+//             const data = doc.data();
+//             const score = data.score
+
+//             const h4 = document.createElement('h4');
+//                 h4.innerHTML = `${humanRead(score)})`
+//             scoreDisplay.appendChild(h4);
+//         })
+//     })
+// }
 
 // function to display speedrun leaderboard (Musk & Co.)
 // function displayTimedLeaderboard(leaderboardId, netWorth, collectionName) {
@@ -83,6 +102,7 @@ function displayPointsLeaderboard() {
 // }
 
 displayPointsLeaderboard();
+// displayPoints();
 // functionName('leaderboard ID', minimum net worth required, 'collection name in firebase')
 // displayTimedLeaderboard('muskLeaderboard', MuskNetWorth, 'muskLeaderboard');
 // displayTimedLeaderboard('bezosLeaderboard', BezosNetWorth, 'bezosLeaderboard');
