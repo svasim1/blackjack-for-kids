@@ -24,6 +24,13 @@ export function getPlayerStand() {
   return playerStand;
 }
 
+export function clearPlayer() {
+  playerHand = [];
+  playerHandTotal = 0;
+  aces = 0;
+  setPlayerStand(false);
+}
+
 // Function to add a card to the player's hand
 export function addPlayerCard(card) {
   playerHand.push(card);

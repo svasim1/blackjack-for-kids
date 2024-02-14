@@ -11,6 +11,11 @@ const houseHandTotalElement = document.getElementById("dealerSum");
 let houseHand = [];
 let houseHandTotal = 0;
 
+export function clearHouse() {
+  houseHand = [];
+  houseHandTotal = 0;
+}
+
 // Function to add a card to the house's hand
 export function addHouseCard(card) {
   houseHand.push(card);
