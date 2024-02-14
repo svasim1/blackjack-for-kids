@@ -1,72 +1,96 @@
-import { hit } from "./game.js";
+// Import neccessary functions and variables
 import { houseHandTotal } from "./houseManager.js";
-import { getResult } from "./getResult.js";
+import { displayResult, getResult } from "./getResult.js";
+import { hit } from "./game.js";
 
+// Declare DOM elements
+const handTotalElement = document.getElementById("hand-total");
+const handCardsElement = document.getElementById("hand-cards");
+const buttons = document.getElementsByClassName("button");
+
+// Initialize variables
 let playerHand = [];
 let playerStand = false;
 let playerHandTotal = 0;
+let aces = 0;
 
+// Function to update playerStand
 export function setPlayerStand(value) {
   playerStand = value;
 }
 
+// Function to get playerStand
 export function getPlayerStand() {
   return playerStand;
 }
 
-// Add a card to the player's hand
+// Function to add a card to the player's hand
 export function addPlayerCard(card) {
   playerHand.push(card);
   updateHand();
 }
 
-function getPlayerHandTotal() {
+// Function to update the player's hand total
+function setPlayerHandTotal() {
   playerHandTotal = playerHand.reduce((total, card) => total + card.value, 0);
-  return playerHandTotal;
-}
 
-// Update the player's hand
-function updateHand() {
-  let playerHandTotal = getPlayerHandTotal();
-  updateUI(playerHandTotal);
-
-  return playerHandTotal;
-}
-
-// Update the UI
-function updateUI(playerHandTotal) {
-  let handTotalElement = document.getElementById("hand-total");
-  let hitButton = document.getElementById("hitButton");
-  let buttons = document.getElementsByClassName("button");
-
-  handTotalElement.innerHTML = `Hand total: ${playerHandTotal}`;
-
-  // Check if player has won or lost
-  if (playerHandTotal === 21) {
-    for (let button of buttons) {
-      button.disabled = true;
+  // Check for aces
+  if (playerHandTotal > 21) {
+    if (playerHand.at(-1).value === 11) {
+      aces++;
+      alert("You have an ace! It's value is now 1.");
     }
-    setPlayerStand(true);
-    hit();
-  } else if (playerHandTotal > 21) {
-    for (let button of buttons) {
-      button.disabled = true;
-    }
-    let result = getResult(houseHandTotal, playerHandTotal);
-    document.getElementById("result").innerHTML = result;
-    document.getElementById("result").classList.add("show");
   }
 
-  // Update the cards shown on screen
-  document.getElementById("hand-cards").innerHTML = "";
+  playerHandTotal = playerHandTotal - 10 * aces;
+}
+
+// Function to disable buttons
+function disableButtons() {
+  for (let button of buttons) {
+    button.disabled = true;
+  }
+}
+
+// Function to check if the player has won or busted
+function checkWinOrBust() {
+  // Check for player blackjack
+  if (playerHandTotal === 21) {
+    disableButtons();
+    setPlayerStand(true);
+    // Deal a card to the house
+    hit(false, true);
+  }
+  // Check for player bust
+  else if (playerHandTotal > 21) {
+    disableButtons();
+    displayResult(getResult(houseHandTotal, playerHandTotal));
+  }
+}
+
+// Function to update the player's hand
+function updateHand() {
+  setPlayerHandTotal();
+  updateUI();
+}
+
+// Function to update the UI
+function updateUI() {
+  // Update the hand total
+  handTotalElement.textContent = `Hand total: ${playerHandTotal}`;
+  // Check for win or bust
+  checkWinOrBust();
+
+  // Update the hand cards
+  handCardsElement.textContent = "";
   playerHand.forEach((card) => {
-    let img = document.createElement("img");
+    const img = document.createElement("img");
     img.src = `cards/${card.cardImage}`;
     img.style.width = "50px";
     img.style.height = "auto";
-    document.getElementById("hand-cards").appendChild(img);
+    handCardsElement.appendChild(img);
   });
 }
 
-// Export the player's hand total
+// Export playerHandTotal for use in houseManager.js
 export { playerHandTotal };
