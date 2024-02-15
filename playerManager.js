@@ -1,7 +1,7 @@
 // Import neccessary functions and variables
 import { houseHandTotal } from "./houseManager.js";
 import { displayResult, getResult } from "./getResult.js";
-import { hit } from "./game.js";
+import { hit, stand } from "./game.js";
 
 // Declare DOM elements
 const handTotalElement = document.getElementById("handSum");
@@ -55,10 +55,11 @@ function disableButtons() {
 function checkWinOrBust() {
   // Check for player blackjack
   if (playerHandTotal === 21) {
-    disableButtons();
-    setPlayerStand(true);
-    // Deal a card to the house
-    hit(false, true);
+    // setPlayerStand(true);
+    // disableButtons();
+    // // Deal a card to the house
+    // hit(false, true);
+    stand()
   }
   // Check for player bust
   else if (playerHandTotal > 21) {

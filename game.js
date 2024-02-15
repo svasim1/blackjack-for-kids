@@ -49,7 +49,7 @@ hitButton.addEventListener("click", () => hit(true, true));
 standButton.addEventListener("click", () => stand());
 
 // Function to stand - disable buttons, set playerStand to true, and deal a card to the house
-function stand() {
+export function stand() {
   hitButton.disabled = true;
   standButton.disabled = true;
   setPlayerStand(true);
