@@ -1,3 +1,4 @@
+// går inte att importera score eftersom den inte exporteras (index.js är inte type="module")
 import { score } from "./index.js"
 
 function Betting () {
@@ -9,8 +10,9 @@ function Betting () {
 
     const randomInt = getRandomInteger(100, 5000)
 
+    // variabler som aldrig används?
     let House_score = randomInt,
-        Total_playerScore = score
+    Total_playerScore = score
 
     var Chip_1 = 1
     var Chip_10 = 10
@@ -82,6 +84,7 @@ function Betting () {
 // get result + change to score//
 
 function get_Betting_results () {
+    // använd import helst, inte require
     const results = require('./getResult.js')
 
     if (results == "You win!") {
@@ -121,10 +124,15 @@ function get_Betting_results () {
 
 }
 
+// byt ut mot export { Betting, get_better_results }, module.exports funkar inte
 module.exports = { Betting }
 module.exports = { get_Betting_results }
 
+// eftersom Total_playerScore endast defineras innanför en funktion lokalt så är variabeln utanför funktionen undefined
+// om funktionerna hade funkat och inte gett errors så skulle dock detta funka, tror jag?
 console.log(Total_playerScore)
+// samma sak för House_score, variabeln är lokal innanför funktionen men kanske skulle funka om funktionen funkade
+// jag är inte direkt någon Javascript expert, men jag tror att allt skulle funka om vi fixar dessa misstag
 console.log(House_score)
 
 //export const score = Total_playerScore
