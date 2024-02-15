@@ -51,12 +51,12 @@ function displayPointsLeaderboard() {
 
             if (!existingUsernames.has(username)) {
                 existingUsernames.add(username);
-                const score = data.score;
+                const score = parseInt(data.score);
 
                 const listItem = document.createElement('li');
                 listItem.innerHTML = `${username}: 💲${humanRead(score)}`;
                 pointsLeaderboard.appendChild(listItem);
-            } 
+            }
         });
     });
 }
