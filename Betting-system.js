@@ -1,4 +1,4 @@
-import { score } from "./index.js"
+import { score } from "../Scripts/index.js"
 
 function Betting () {
     //varje gång den här koden körs är en ny runda då man bettar på nytt
