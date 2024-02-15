@@ -38,7 +38,6 @@ function setPlayerHandTotal() {
   if (playerHandTotal > 21) {
     if (playerHand.at(-1).value === 11) {
       aces++;
-      alert("You have an ace! It's value is now 1.");
     }
   }
 
