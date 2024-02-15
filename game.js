@@ -2,7 +2,9 @@
 import { Cards } from "./cards.js"
 import { addPlayerCard, setPlayerStand } from "./playerManager.js"
 import { addHouseCard } from "./houseManager.js"
-import { Betting, get_Betting_results } from './Betting-system.js'
+
+const { Betting } = require('./Betting-system.js')
+const { get_Betting_results } = require('./Betting-system.js')
 
 const hitButton = document.getElementById("hitButton")
 const standButton = document.getElementById("standButton")
