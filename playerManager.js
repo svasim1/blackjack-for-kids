@@ -83,11 +83,13 @@ function updateUI() {
 
   // Update the hand cards
   handCardsElement.textContent = "";
-  playerHand.forEach((card) => {
+  playerHand.forEach((card, index) => {
     const img = document.createElement("img");
     img.src = `${card.cardImage}`;
-    img.style.width = "50px";
-    img.style.height = "auto";
+    img.style.width = "115px";
+    img.style.height = "175px";
+    const marginLeft = index * 2.5;
+    img.style.marginLeft = `${marginLeft}%`;
     handCardsElement.appendChild(img);
   });
 }

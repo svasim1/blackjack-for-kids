@@ -45,11 +45,13 @@ function decideHouseAction() {
 // Function to update the house's hand
 function updateUI() {
   houseCardsElement.textContent = "";
-  houseHand.forEach((card) => {
+  houseHand.forEach((card, index) => {
     const img = document.createElement("img");
     img.src = `${card.cardImage}`;
-    img.style.width = "50px";
-    img.style.height = "auto";
+    img.style.width = "115px";
+    img.style.height = "175px";
+    const marginLeft = index * 5;
+    img.style.marginLeft = `${marginLeft}%`;
     houseCardsElement.appendChild(img);
   });
 }

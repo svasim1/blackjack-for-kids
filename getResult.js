@@ -30,5 +30,16 @@ export function getResult(houseHandTotal, playerHandTotal) {
 export function displayResult(result) {
   const resultElement = document.getElementById("result");
   resultElement.textContent = result;
+  if (result == "You busted!") {
+    resultElement.style.marginLeft = "42%";
+  } else if (result == "You lost!") {
+    resultElement.style.marginLeft = "43%";
+  } else  if (result == "Draw!") {
+    resultElement.style.marginLeft = "46%"
+  } else  if (result == "You win!") {
+    resultElement.style.marginLeft = "43%"
+  } else {
+    resultElement.style.marginLeft = "34%"
+  }
   resultElement.classList.add("show");
 }
