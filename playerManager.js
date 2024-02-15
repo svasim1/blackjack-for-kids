@@ -4,8 +4,8 @@ import { displayResult, getResult } from "./getResult.js";
 import { hit } from "./game.js";
 
 // Declare DOM elements
-const handTotalElement = document.getElementById("hand-total");
-const handCardsElement = document.getElementById("hand-cards");
+const handTotalElement = document.getElementById("handSum");
+const handCardsElement = document.getElementById("ownHandDiv");
 const buttons = document.getElementsByClassName("button");
 
 // Initialize variables
@@ -85,7 +85,7 @@ function updateUI() {
   handCardsElement.textContent = "";
   playerHand.forEach((card) => {
     const img = document.createElement("img");
-    img.src = `cards/${card.cardImage}`;
+    img.src = `${card.cardImage}`;
     img.style.width = "50px";
     img.style.height = "auto";
     handCardsElement.appendChild(img);
