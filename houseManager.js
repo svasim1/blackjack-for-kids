@@ -11,6 +11,11 @@ const houseHandTotalElement = document.getElementById("dealerSum");
 let houseHand = [];
 let houseHandTotal = 0;
 
+export function clearHouse() {
+  houseHand = [];
+  houseHandTotal = 0;
+}
+
 // Function to add a card to the house's hand
 export function addHouseCard(card) {
   houseHand.push(card);
@@ -25,7 +30,6 @@ function setHandTotal() {
   if (houseHandTotal > 21) {
     if (houseHand.at(-1).value === 11) {
       houseHandTotal = houseHandTotal - 10;
-      alert("The house has an ace! It's value is now 1.");
     }
   }
 }
@@ -45,11 +49,13 @@ function decideHouseAction() {
 // Function to update the house's hand
 function updateUI() {
   houseCardsElement.textContent = "";
-  houseHand.forEach((card) => {
+  houseHand.forEach((card, index) => {
     const img = document.createElement("img");
     img.src = `${card.cardImage}`;
-    img.style.width = "50px";
-    img.style.height = "auto";
+    img.style.width = "115px";
+    img.style.height = "175px";
+    const marginLeft = index * 5;
+    img.style.marginLeft = `${marginLeft}%`;
     houseCardsElement.appendChild(img);
   });
 }

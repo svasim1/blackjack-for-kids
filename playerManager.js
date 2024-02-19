@@ -1,7 +1,7 @@
 // Import neccessary functions and variables
 import { houseHandTotal } from "./houseManager.js";
 import { displayResult, getResult } from "./getResult.js";
-import { hit } from "./game.js";
+import { hit, stand } from "./game.js";
 
 // Declare DOM elements
 const handTotalElement = document.getElementById("handSum");
@@ -24,6 +24,13 @@ export function getPlayerStand() {
   return playerStand;
 }
 
+export function clearPlayer() {
+  playerHand = [];
+  playerHandTotal = 0;
+  aces = 0;
+  setPlayerStand(false);
+}
+
 // Function to add a card to the player's hand
 export function addPlayerCard(card) {
   playerHand.push(card);
@@ -38,7 +45,6 @@ function setPlayerHandTotal() {
   if (playerHandTotal > 21) {
     if (playerHand.at(-1).value === 11) {
       aces++;
-      alert("You have an ace! It's value is now 1.");
     }
   }
 
@@ -56,10 +62,12 @@ function disableButtons() {
 function checkWinOrBust() {
   // Check for player blackjack
   if (playerHandTotal === 21) {
-    disableButtons();
-    setPlayerStand(true);
-    // Deal a card to the house
-    hit(false, true);
+    // setPlayerStand(true);
+    // disableButtons();
+    // // Deal a card to the house
+    // hit(false, true);
+    stand();
+    // hello, Ted here! i changed this so that it runs stand() instead of whatever it ran before since you could still hit after winning
   }
   // Check for player bust
   else if (playerHandTotal > 21) {
@@ -83,11 +91,13 @@ function updateUI() {
 
   // Update the hand cards
   handCardsElement.textContent = "";
-  playerHand.forEach((card) => {
+  playerHand.forEach((card, index) => {
     const img = document.createElement("img");
     img.src = `${card.cardImage}`;
-    img.style.width = "50px";
-    img.style.height = "auto";
+    img.style.width = "115px";
+    img.style.height = "175px";
+    const marginLeft = index * 2.5;
+    img.style.marginLeft = `${marginLeft}%`;
     handCardsElement.appendChild(img);
   });
 }

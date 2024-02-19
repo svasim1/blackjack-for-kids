@@ -36,22 +36,29 @@ let humanRead = (num,intSep = ',',floatSep = '.') => {
 // function to display 'most money earned' leaderboard
 function displayPointsLeaderboard() {
     const pointsLeaderboard = document.getElementById('pointsLeaderboard');
+    pointsLeaderboard.innerHTML = ''
 
     db.collection('pointsLeaderboard')
     .orderBy('score', 'desc')
     .limit(10)
     .get()
     .then(querySnapshot => {
+        const existingUsernames = new Set();
+
         querySnapshot.forEach(doc => {
             const data = doc.data();
-            const score = data.score
-            const username = data.username
+            const username = data.username;
 
-            const listItem = document.createElement('li');
-                listItem.innerHTML = `${username}: 💲${humanRead(score)}`
-            pointsLeaderboard.appendChild(listItem);
-        })
-    })
+            if (!existingUsernames.has(username)) {
+                existingUsernames.add(username);
+                const score = parseInt(data.score);
+
+                const listItem = document.createElement('li');
+                listItem.innerHTML = `${username}: 💲${humanRead(score)}`;
+                pointsLeaderboard.appendChild(listItem);
+            }
+        });
+    });
 }
 
 // function displayPoints() {
