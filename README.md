@@ -18,6 +18,7 @@ _Blackjack for Kids_ is a fun and educational blackjack game designed with a pla
     - [Controls:](#controls)
   - [Contributing](#contributing)
   - [Authors](#authors)
+  - [Diagrams](#diagrams)
 
 ---
 
@@ -73,3 +74,10 @@ Contributions are welcome! If you have any suggestions, bug fixes, or enhancemen
 - [@svasim1](https://github.com/svasim1)
 - [@Abb22TedStr](https://github.com/Abb22TedStr)
 - [@abbjullin](https://github.com/abbjullin)
+
+## Diagrams
+
+(old, may not be 100% correct)
+
+![State diagram](Images/blackjack-for-kids.png)
+![Modules](Images/blackjack-for-kids-modules.png)
