@@ -66,7 +66,8 @@ function checkWinOrBust() {
     // disableButtons();
     // // Deal a card to the house
     // hit(false, true);
-    stand()
+    stand();
+    // hello, Ted here! i changed this so that it runs stand() instead of whatever it ran before since you could still hit after winning
   }
   // Check for player bust
   else if (playerHandTotal > 21) {

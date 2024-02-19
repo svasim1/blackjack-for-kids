@@ -30,7 +30,6 @@ function setHandTotal() {
   if (houseHandTotal > 21) {
     if (houseHand.at(-1).value === 11) {
       houseHandTotal = houseHandTotal - 10;
-      alert("The house has an ace! It's value is now 1.");
     }
   }
 }

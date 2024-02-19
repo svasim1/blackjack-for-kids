@@ -29,6 +29,9 @@ export function getResult(houseHandTotal, playerHandTotal) {
 // Function to display the result
 export function displayResult(result) {
   const resultElement = document.getElementById("result");
+  const restartButton = document.getElementById("restartButton");
+  const hitButton = document.getElementById("hitButton");
+  const standButton = document.getElementById("standButton");
   resultElement.textContent = result;
   if (result == "You busted!") {
     resultElement.style.marginLeft = "42%";
@@ -42,4 +45,12 @@ export function displayResult(result) {
     resultElement.style.marginLeft = "34%"
   }
   resultElement.classList.add("show");
+  restartButton.style.display = "flex";
+  hitButton.style.display = "none";
+  standButton.style.display = "none";
+}
+
+export function hideResult() {
+  const resultElement = document.getElementById("result");
+  resultElement.textContent = '';
 }

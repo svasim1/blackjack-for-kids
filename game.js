@@ -7,6 +7,7 @@ import {
   clearPlayer,
 } from "./playerManager.js";
 import { addHouseCard, clearHouse } from "./houseManager.js";
+import { hideResult } from "./getResult.js";
 
 let deck;
 let gameActive = true;
@@ -53,6 +54,9 @@ function initializeDeck() {
 
 function startGame() {
   gameActive = true;
+  restartButton.style.display = "none";
+  hitButton.style.display = "flex";
+  standButton.style.display = "flex";
   // Initialize the deck
   deck = initializeDeck();
   // Deal two cards to the player and one card to the house
@@ -67,6 +71,9 @@ function restartGame() {
   clearPlayer();
   clearHouse();
   // Start the game
+  hitButton.disabled = false;
+  standButton.disabled = false;
+  hideResult();
   startGame();
 }
 

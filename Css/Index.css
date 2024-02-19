@@ -333,6 +333,13 @@
     margin-right: 18.9%;
 }
 
+.restartbutton {
+    position: absolute;
+    right: 350px;
+    bottom: 50px;
+    border-radius: 10px;
+}
+
 /* MmmMmmMmmmmm... chips... */
 .chipsBag {
     position: absolute;
