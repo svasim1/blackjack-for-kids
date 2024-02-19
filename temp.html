@@ -13,7 +13,7 @@
         align-items: center;
         height: 100vh;
         margin: 0;
-        background-image: url("cards/Bord.jpg");
+        background-image: url("Images/Bord.jpg");
         background-repeat: no-repeat;
         background-size: cover;
       }
@@ -30,7 +30,7 @@
         font-size: 20px;
         margin: 10px;
       }
-      #hand-total,
+      #handSum,
       #house-total {
         text-align: center;
       }
@@ -48,17 +48,18 @@
   </head>
   <body>
     <div id="houseHand">
-      <div id="house-cards"></div>
+      <div id="dealerHandDiv"></div>
       <div id="house-total"></div>
     </div>
     <div id="table">
       <button id="hitButton" class="button">Hit</button>
       <button id="standButton" class="button">Stand</button>
+      <button id="restartButton" class="button">Restart</button>
       <div id="result"></div>
     </div>
     <div id="hand">
-      <div id="hand-cards"></div>
-      <div id="hand-total"></div>
+      <div id="ownHandDiv"></div>
+      <div id="handSum"></div>
     </div>
   </body>
 </html>

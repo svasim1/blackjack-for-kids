@@ -33,7 +33,6 @@
     <title>Blackjack for kids!</title>
   </head>
   <body>
-    <script type="module" src="../game.js"></script>
     <!-- chrome won't allow me to always consistently autoplay music on the website because of their "policies", -->
     <!-- so under certain circumstances it won't play automatically. blame google, not me. -->
     <audio
@@ -107,7 +106,7 @@
 
       <div class="playButtonsDiv">
         <div class="registerPlayBtnDiv">
-          <button type="submit" class="registerPlayBtn" id="registerPlayBtn">
+          <button type="submit" class="registerPlayBtn" id="registerPlayBtn" onclick="toGameBtn()">
             Start the game!
           </button>
         </div>
@@ -167,6 +166,7 @@
       <div class="btnsDiv" id="btnsDiv">
         <button class="hitBtn" id="hitButton"></button>
         <button class="standBtn" id="standButton"></button>
+        <button id="restartButton" class="restartbutton">Restart</button>
 
         <!-- i'm putting the chips inside the div for buttons because it works better that way -->
         <div class="chipsBag">
@@ -355,5 +355,6 @@
     </footer>
     <script src="../Scripts/firebaseManager.js"></script>
     <script src="../Scripts/index.js"></script>
+    <script type="module" src="../game.js"></script>
   </body>
 </html>

@@ -39,7 +39,7 @@
     border-radius: 15px;
     border-style: solid;
     border-color: #fff;
-    width: 60%;
+    width: 40%;
     height: 600px;
     min-height: 600px;
     min-width: 758px;
@@ -100,7 +100,7 @@
     border-radius: 15px;
     border-style: solid;
     border-color: #fff;
-    width: 60%;
+    width: 40%;
     height: 600px;
     min-height: 600px;
     min-width: 758px;
@@ -157,7 +157,7 @@
     cursor: pointer;
 }
 
-.muskPlayBtnDiv {
+/* .muskPlayBtnDiv {
     height: 120px;
     width: 40%;
     display: flex;
@@ -212,7 +212,7 @@
 
 .zuckerPlayBtn:hover {
     cursor: pointer;
-}
+} */
 
 .gameSection {
     display: none;
@@ -221,7 +221,7 @@
     border-radius: 15px;
     border-style: solid;
     border-color: #fff;
-    width: 60%;
+    width: 40%;
     height: 600px;
     min-height: 600px;
     min-width: 758px;
@@ -243,7 +243,6 @@
 .gameSection .ownHandDiv {
     display: flex;
     align-items: center;
-    flex-direction: column;
     z-index: 2;
     margin-left: 16%;
     width: 115px;
@@ -251,13 +250,28 @@
 
 /* handSum hahaha! get it? it sounds like handsome!!! 😂😂😂😂 */
 .handSum {
+    position: absolute;
+    margin-left: 14%;
+    margin-bottom: 25%;
     color: white;
-    font-size: xx-large;
+    font-size: x-large;
 }
 
-.gameSection .ownHand {
-    height: 175px;
-    width: 115px;
+#result {
+    position: absolute;
+    color: #fff;
+    font-size: x-large;
+    margin-bottom: -10%;
+}
+
+.ownHandDiv img {
+    position: absolute;
+    margin-bottom: 25%;
+}
+
+.dealerHandDiv img {
+    position: absolute;
+    margin-top: -24%;
 }
 
 /* Dealer's hand is on the right */
@@ -317,6 +331,13 @@
     height: 51px;
     width: 51px;
     margin-right: 18.9%;
+}
+
+.restartbutton {
+    position: absolute;
+    right: 355px;
+    bottom: 50px;
+    border-radius: 10px;
 }
 
 /* MmmMmmMmmmmm... chips... */
@@ -391,7 +412,7 @@
 
 .blackBackground {
     background-color: rgb(0, 0, 0, 0.2);
-    width: 60%;
+    width: 40%;
     height: 600px;
     min-height: 600px;
     min-width: 758px;
@@ -441,7 +462,7 @@
     border-radius: 15px;
     border-style: solid;
     border-color: #fff;
-    width: 60%;
+    width: 40%;
     height: 600px;
     min-height: 600px;
     min-width: 758px;
@@ -518,7 +539,7 @@
     border-radius: 15px;
     border-style: solid;
     border-color: #fff;
-    width: 60%;
+    width: 40%;
     min-height: fit-content;
     min-width: 758px;
     min-height: 600px;
@@ -556,7 +577,7 @@
     border-radius: 15px;
     border-style: solid;
     border-color: #fff;
-    width: 60%;
+    width: 40%;
     height: 100%;
     min-height: fit-content;
     min-width: 758px;
@@ -583,7 +604,7 @@
     border-radius: 15px;
     border-style: solid;
     border-color: #fff;
-    width: 60%;
+    width: 40%;
     height: 600px;
     min-height: 600px;
     min-width: 758px;
