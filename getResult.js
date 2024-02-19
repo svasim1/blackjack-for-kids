@@ -34,13 +34,13 @@ export function displayResult(result) {
   const standButton = document.getElementById("standButton");
   resultElement.textContent = result;
   if (result == "You busted!") {
-    resultElement.style.marginLeft = "42%";
+    resultElement.style.marginLeft = "41%";
   } else if (result == "You lost!") {
-    resultElement.style.marginLeft = "43%";
+    resultElement.style.marginLeft = "43.5%";
   } else  if (result == "Draw!") {
-    resultElement.style.marginLeft = "46%"
+    resultElement.style.marginLeft = "45%"
   } else  if (result == "You win!") {
-    resultElement.style.marginLeft = "43%"
+    resultElement.style.marginLeft = "43.3%"
   } else {
     resultElement.style.marginLeft = "34%"
   }
