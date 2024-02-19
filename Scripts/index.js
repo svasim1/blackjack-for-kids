@@ -1,4 +1,6 @@
 // Ted Strömne fixar Javascript som gömmer och visar element och sådant
+// Jag inser att jag kunde skrivit allt det här bättre istället för att upprepa kod, men presentation är imorgon och jag orkar inte.
+// Tack och adjö 👨‍🦼💨
 
 function toRules() {
     var menu = document.getElementById("menuSection");
