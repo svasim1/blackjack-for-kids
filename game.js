@@ -1,10 +1,20 @@
 // Import neccessary functions and variables
 import { Cards } from "./cards.js";
-import { addPlayerCard, setPlayerStand } from "./playerManager.js";
-import { addHouseCard } from "./houseManager.js";
+import {
+  addPlayerCard,
+  playerHandTotal,
+  setPlayerStand,
+  clearPlayer,
+} from "./playerManager.js";
+import { addHouseCard, clearHouse } from "./houseManager.js";
 
+let deck;
+let gameActive = true;
+
+// Declare DOM elements
 const hitButton = document.getElementById("hitButton");
 const standButton = document.getElementById("standButton");
+const restartButton = document.getElementById("restartButton");
 
 // Dictionary of card names
 const suits = ["hearts", "diamonds", "clubs", "spades"];
@@ -41,12 +51,29 @@ function initializeDeck() {
   return deck;
 }
 
-// Initialize the deck
-let deck = initializeDeck();
+function startGame() {
+  gameActive = true;
+  // Initialize the deck
+  deck = initializeDeck();
+  // Deal two cards to the player and one card to the house
+  hit(true, true);
+  hit(true, true);
+  hit(false, true);
+}
+
+function restartGame() {
+  gameActive = true;
+  // Clear the player's and house's hands
+  clearPlayer();
+  clearHouse();
+  // Start the game
+  startGame();
+}
 
 // Event listeners for the hit and stand buttons
 hitButton.addEventListener("click", () => hit(true, true));
 standButton.addEventListener("click", () => stand());
+restartButton.addEventListener("click", () => restartGame());
 
 // Function to stand - disable buttons, set playerStand to true, and deal a card to the house
 export function stand() {
@@ -91,7 +118,5 @@ export function hit(isPlayer, isShown) {
 
 // On page load, deal two cards to the player and one card to the house
 window.onload = function () {
-  hit(true, true);
-  hit(true, true);
-  hit(false, true);
+  startGame();
 };
